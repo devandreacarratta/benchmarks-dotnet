@@ -5,7 +5,7 @@
         [Params(10, 100, 1000, 10000)]
         public int ItemsToAdd;
 
-        private Dictionary<int, bool> _dictionary = new ();
+        private Dictionary<int, bool> _dictionary = new();
         private SortedDictionary<int, bool> _sorted = new();
 
         [IterationSetup()]

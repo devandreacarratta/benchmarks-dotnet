@@ -3,7 +3,7 @@
     public class StringComparePerformance
     {
         public IEnumerable<string> FirstItems => new[] { "Hello World", "hello world", "HELLO WORLD", "First Item" };
-        public IEnumerable<string> SecondItems => new[] { "Hello World", "hello world", "HELLO WORLD", "Second Item" };        
+        public IEnumerable<string> SecondItems => new[] { "Hello World", "hello world", "HELLO WORLD", "Second Item" };
 
         [ParamsSource(nameof(FirstItems))]
         public string FirstItem { get; set; } = string.Empty;
