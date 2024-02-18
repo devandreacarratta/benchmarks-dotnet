@@ -1,14 +1,14 @@
-﻿namespace BenchmarksDotnet
+﻿namespace BenchmarksDotnet.Benchmarks
 {
     public class DictionaryVersusSortedTryAddItems
     {
-        [Params(1, 10, 100, 1000, 10000)]
+        [Params(10, 100, 1000, 10000)]
         public int ItemsToAdd;
 
         private Dictionary<int, bool> _dictionary = new();
         private SortedDictionary<int, bool> _sorted = new();
 
-        [GlobalSetup()]
+        [IterationSetup()]
         public void Setup()
         {
             _dictionary = new();
