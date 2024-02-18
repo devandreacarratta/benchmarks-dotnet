@@ -7,12 +7,14 @@ List<Type> benchmarkTypes = new List<Type>()
         typeof(GuidToString),
         typeof(StringEqualsPerformance),
         typeof(DictionaryVersusSortedAddItems),
-        typeof(DictionaryVersusSortedTryAddItems)
+        typeof(DictionaryVersusSortedTryAddItems),
+        typeof(NewtonsoftVersusJsonSerializerDeserialize),
+        typeof(NewtonsoftVersusJsonSerializerSerialize),
     };
 
 if (benchmarkTypes == null || benchmarkTypes.Count == 0)
 {
-    var summary = BenchmarkRunner.Run(Assembly.GetExecutingAssembly());
+    _ = BenchmarkRunner.Run(Assembly.GetExecutingAssembly());
 }
 else
 {
