@@ -12,7 +12,8 @@ else
 {
     List<Type> benchmarkTypes = new List<Type>()
     {
-        typeof(GuidToString)
+        //typeof(GuidToString),
+        typeof(StringEqualsPerformance),
     };
 
     foreach (var type in benchmarkTypes)

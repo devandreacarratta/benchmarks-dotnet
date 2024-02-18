@@ -4,31 +4,31 @@ namespace BenchmarksDotnet
 {
     public class GuidToString
     {
-        public Guid CurrentGuid = Guid.Empty;
+        private Guid _currentGuid = Guid.Empty;
 
         [GlobalSetup]
         public void Setup()
         {
-            CurrentGuid = Guid.NewGuid();
+            _currentGuid = Guid.NewGuid();
         }
 
         [Benchmark]
         public void MethodToString()
         {
-            _ = CurrentGuid.ToString();
+            _ = _currentGuid.ToString();
         }
 
         [Benchmark]
         public void StringInterpolation()
         {
-            _ = $"{CurrentGuid}";
+            _ = $"{_currentGuid}";
         }
 
         [Benchmark]
         public void StringBuilderCheck()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(CurrentGuid);
+            stringBuilder.Append(_currentGuid);
 
             _ = stringBuilder.ToString();
         }
