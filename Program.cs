@@ -2,20 +2,20 @@
 using BenchmarksDotnet;
 using System.Reflection;
 
-bool fullBenchmarks = false;
+List<Type> benchmarkTypes = new List<Type>()
+    {
+        typeof(GuidToString),
+        typeof(StringEqualsPerformance),
+        typeof(DictionaryVersusSortedAddItems),
+        typeof(DictionaryVersusSortedTryAddItems)
+    };
 
-if (fullBenchmarks)
+if (benchmarkTypes == null || benchmarkTypes.Count == 0)
 {
     var summary = BenchmarkRunner.Run(Assembly.GetExecutingAssembly());
 }
 else
 {
-    List<Type> benchmarkTypes = new List<Type>()
-    {
-        //typeof(GuidToString),
-        typeof(StringEqualsPerformance),
-    };
-
     foreach (var type in benchmarkTypes)
     {
         BenchmarkRunner.Run(type);
