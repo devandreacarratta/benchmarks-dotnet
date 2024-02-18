@@ -2,8 +2,8 @@
 {
     public class StringEqualsPerformance
     {
-        public IEnumerable<string> FirstItems => new[] { "Hello World", "hello world", "HELLO WORLD", "First Item" };
-        public IEnumerable<string> SecondItems => new[] { "Hello World", "hello world", "HELLO WORLD", "Second Item" };
+        public IEnumerable<string> FirstItems => new[] { "Hello World", "hello world" };
+        public IEnumerable<string> SecondItems => new[] { "Hello World", "HELLO WORLD" };
 
         [ParamsSource(nameof(FirstItems))]
         public string FirstItem { get; set; } = string.Empty;

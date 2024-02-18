@@ -5,7 +5,7 @@ namespace BenchmarksDotnet.Benchmarks
 {
     public class NewtonsoftVersusJsonSerializerSerialize
     {
-        private Products _products;
+        private Products _products = new Products();
 
         [GlobalSetup]
         public void Setup()
