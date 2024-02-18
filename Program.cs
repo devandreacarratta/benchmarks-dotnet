@@ -29,7 +29,7 @@ var config = DefaultConfig.Instance
 
 if (benchmarkTypes == null || benchmarkTypes.Count == 0)
 {
-    _ = BenchmarkRunner.Run(Assembly.GetExecutingAssembly());
+    _ = BenchmarkRunner.Run(Assembly.GetExecutingAssembly(), config);
 }
 else
 {
