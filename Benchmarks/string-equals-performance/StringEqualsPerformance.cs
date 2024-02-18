@@ -1,9 +1,15 @@
-﻿namespace BenchmarksDotnet
+﻿namespace BenchmarksDotnet.Benchmarks
 {
     public class StringEqualsPerformance
     {
-        private string _firstItem = string.Empty;
-        private string _secondItem = string.Empty;
+        public IEnumerable<string> FirstItems => new[] { "Hello World", "hello world", "HELLO WORLD", "First Item" };
+        public IEnumerable<string> SecondItems => new[] { "Hello World", "hello world", "HELLO WORLD", "Second Item" };
+
+        [ParamsSource(nameof(FirstItems))]
+        public string FirstItem { get; set; } = string.Empty;
+
+        [ParamsSource(nameof(SecondItems))]
+        public string SecondItem { get; set; } = string.Empty;
 
         [Params(
             StringComparison.CurrentCulture,
@@ -12,19 +18,17 @@
             StringComparison.InvariantCultureIgnoreCase,
             StringComparison.Ordinal,
             StringComparison.OrdinalIgnoreCase)]
-        public StringComparison _stringComparison;
+        public StringComparison StringComparisonItem;
 
         [GlobalSetup()]
         public void Setup()
         {
-            _firstItem = "Hello World";
-            _secondItem = "hello world";
         }
 
         [Benchmark]
         public void StringEqual()
         {
-            _ = string.Equals(_firstItem, _secondItem, _stringComparison);
+            _ = string.Equals(FirstItem, SecondItem, StringComparisonItem);
         }
     }
 }

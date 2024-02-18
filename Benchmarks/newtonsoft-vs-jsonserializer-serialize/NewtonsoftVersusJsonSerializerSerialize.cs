@@ -1,12 +1,10 @@
 ﻿using BenchmarksDotnet.Entities;
 using System.Reflection;
 
-namespace BenchmarksDotnet
+namespace BenchmarksDotnet.Benchmarks
 {
     public class NewtonsoftVersusJsonSerializerSerialize
     {
-       
-
         private Products _products;
 
         [GlobalSetup]
@@ -18,9 +16,9 @@ namespace BenchmarksDotnet
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader reader = new StreamReader(stream))
             {
-              var  json = reader.ReadToEnd();
+                var json = reader.ReadToEnd();
 
-            _products = System.Text.Json.JsonSerializer.Deserialize<Products>(json);
+                _products = System.Text.Json.JsonSerializer.Deserialize<Products>(json);
             }
         }
 

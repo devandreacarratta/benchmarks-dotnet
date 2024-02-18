@@ -1,7 +1,7 @@
 ﻿using BenchmarksDotnet.Entities;
 using System.Reflection;
 
-namespace BenchmarksDotnet
+namespace BenchmarksDotnet.Benchmarks
 {
     public class NewtonsoftVersusJsonSerializerDeserialize
     {

@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace BenchmarksDotnet
+namespace BenchmarksDotnet.Benchmarks
 {
     public class GuidToString
     {
