@@ -1,3 +1,5 @@
+![github-profile-devandreacarratta](https://github.com/devandreacarratta/benchmarks-dotnet/assets/46504271/867c8763-7cbf-4bb4-b953-c44f75c64c22)
+
 # .NET Performance Benchmarks Repository
 
 Welcome to our .NET Performance Benchmarks Repository! This project is dedicated to providing comprehensive benchmarks across various .NET operations and implementations. Our goal is to offer insights into performance optimizations and best practices within the .NET ecosystem.
@@ -39,3 +41,13 @@ Your support is greatly appreciated!
 ---
 
 We welcome contributions and suggestions to improve our benchmarks. For more information on contributing, please see our contributing guidelines.
+
+
+## Keep in Touch
+
+- [Linkedin](https://links.devandreacarratta.it/linkedin)
+- [YouTube](https://links.devandreacarratta.it/youtube)
+- [WebSite - EN](https://devandreacarratta.it/en/andrea-carratta-developer-english/?utm_source=github&utm_medium=readme&utm_campaign=benchmarks-dotnet&utm_content=home-en)
+- [CloudNinja - EN](https://cloudninja.it/en/?utm_source=github&utm_medium=readme&utm_campaign=benchmarks-dotnet&utm_content=home-en)
+- [WebSite - IT](https://devandreacarratta.it/?utm_source=github&utm_medium=readme&utm_campaign=benchmarks-dotnet&utm_content=home)
+- [CloudNinja - IT](https://cloudninja.it/?utm_source=github&utm_medium=readme&utm_campaign=benchmarks-dotnet&utm_content=home)
