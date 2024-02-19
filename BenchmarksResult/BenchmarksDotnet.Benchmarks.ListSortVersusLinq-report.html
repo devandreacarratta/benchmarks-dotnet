@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>BenchmarksDotnet.Benchmarks.ListSortVersusLinq-20240218-152137</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.12, Windows 10 (10.0.19045.4046/22H2/2022Update)
+Intel Xeon W-2123 CPU 3.60GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 8.0.200
+  [Host]     : .NET 6.0.27 (6.0.2724.6912), X64 RyuJIT AVX2 [AttachedDebugger]
+  Job-QTMWMW : .NET 6.0.27 (6.0.2724.6912), X64 RyuJIT AVX2
+  Job-GWBGSO : .NET 8.0.2 (8.0.224.6711), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+</code></pre>
+<pre><code>InvocationCount=1  UnrollFactor=1  
+</code></pre>
+
+<table>
+<thead><tr><th>Method</th><th>Runtime</th><th>ItemsToAdd</th><th>Mean  </th><th>Error</th><th>StdDev</th><th>Median</th><th>Rank</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>ListSort</td><td>.NET 6.0</td><td>10</td><td>1.000 &mu;s</td><td>0.0493 &mu;s</td><td>0.1399 &mu;s</td><td>1.000 &mu;s</td><td>1</td><td>544 B</td>
+</tr><tr><td>LinqSort</td><td>.NET 8.0</td><td>10</td><td>1.301 &mu;s</td><td>0.0451 &mu;s</td><td>0.1330 &mu;s</td><td>1.300 &mu;s</td><td>2</td><td>456 B</td>
+</tr><tr><td>LinqSort</td><td>.NET 6.0</td><td>1000</td><td>1.308 &mu;s</td><td>0.0300 &mu;s</td><td>0.0781 &mu;s</td><td>1.300 &mu;s</td><td>2</td><td>600 B</td>
+</tr><tr><td>LinqSort</td><td>.NET 8.0</td><td>1000</td><td>1.357 &mu;s</td><td>0.0693 &mu;s</td><td>0.2010 &mu;s</td><td>1.300 &mu;s</td><td>2</td><td>456 B</td>
+</tr><tr><td>LinqSort</td><td>.NET 6.0</td><td>10000</td><td>1.371 &mu;s</td><td>0.0316 &mu;s</td><td>0.0809 &mu;s</td><td>1.400 &mu;s</td><td>2</td><td>600 B</td>
+</tr><tr><td>LinqSort</td><td>.NET 6.0</td><td>10</td><td>1.417 &mu;s</td><td>0.0570 &mu;s</td><td>0.1608 &mu;s</td><td>1.400 &mu;s</td><td>2</td><td>600 B</td>
+</tr><tr><td>LinqSort</td><td>.NET 8.0</td><td>100</td><td>1.420 &mu;s</td><td>0.0672 &mu;s</td><td>0.1894 &mu;s</td><td>1.400 &mu;s</td><td>2</td><td>456 B</td>
+</tr><tr><td>LinqSort</td><td>.NET 6.0</td><td>100</td><td>1.428 &mu;s</td><td>0.0324 &mu;s</td><td>0.0930 &mu;s</td><td>1.400 &mu;s</td><td>2</td><td>600 B</td>
+</tr><tr><td>LinqSort</td><td>.NET 8.0</td><td>10000</td><td>1.593 &mu;s</td><td>0.1134 &mu;s</td><td>0.3179 &mu;s</td><td>1.600 &mu;s</td><td>3</td><td>456 B</td>
+</tr><tr><td>ListSort</td><td>.NET 8.0</td><td>10</td><td>2.003 &mu;s</td><td>0.0624 &mu;s</td><td>0.1697 &mu;s</td><td>2.000 &mu;s</td><td>4</td><td>400 B</td>
+</tr><tr><td>ListSort</td><td>.NET 6.0</td><td>100</td><td>5.500 &mu;s</td><td>0.1141 &mu;s</td><td>0.2226 &mu;s</td><td>5.500 &mu;s</td><td>5</td><td>544 B</td>
+</tr><tr><td>ListSort</td><td>.NET 8.0</td><td>100</td><td>18.011 &mu;s</td><td>0.4558 &mu;s</td><td>1.3078 &mu;s</td><td>18.100 &mu;s</td><td>6</td><td>400 B</td>
+</tr><tr><td>ListSort</td><td>.NET 6.0</td><td>1000</td><td>67.647 &mu;s</td><td>1.2564 &mu;s</td><td>1.1753 &mu;s</td><td>67.900 &mu;s</td><td>7</td><td>544 B</td>
+</tr><tr><td>ListSort</td><td>.NET 8.0</td><td>1000</td><td>204.526 &mu;s</td><td>3.8551 &mu;s</td><td>9.5288 &mu;s</td><td>201.750 &mu;s</td><td>8</td><td>400 B</td>
+</tr><tr><td>ListSort</td><td>.NET 6.0</td><td>10000</td><td>873.838 &mu;s</td><td>17.2038 &mu;s</td><td>23.5488 &mu;s</td><td>865.150 &mu;s</td><td>9</td><td>544 B</td>
+</tr><tr><td>ListSort</td><td>.NET 8.0</td><td>10000</td><td>2,163.650 &mu;s</td><td>42.7551 &mu;s</td><td>52.5072 &mu;s</td><td>2,170.700 &mu;s</td><td>10</td><td>400 B</td>
+</tr></tbody></table>
+</body>
+</html>
