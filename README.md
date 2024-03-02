@@ -46,6 +46,7 @@ We welcome contributions and suggestions to improve our benchmarks. For more inf
 ## Keep in Touch
 
 - [Linkedin](https://links.devandreacarratta.it/linkedin)
+- [CloudCraft@Linkedin - NewsLetter IT](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7167052293685604352)
 - [YouTube](https://links.devandreacarratta.it/youtube)
 - [WebSite - EN](https://devandreacarratta.it/en/andrea-carratta-developer-english/?utm_source=github&utm_medium=readme&utm_campaign=benchmarks-dotnet&utm_content=home-en)
 - [CloudNinja - EN](https://cloudninja.it/en/?utm_source=github&utm_medium=readme&utm_campaign=benchmarks-dotnet&utm_content=home-en)
