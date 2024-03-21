@@ -21,7 +21,8 @@ List<Type> benchmarkTypes = new()
     //typeof(ListSortVersusLinqDescending),
     //typeof(IEnumerableVersusYield),
     //typeof(ListVersusSortedSetSearchItems)
-    typeof(ListVersusSortedSetSearchItems)
+    //typeof(ListVersusSortedSetSearchItems)
+    //typeof(ListVersusSortedSetMinMax)
 };
 
 var config = DefaultConfig.Instance
