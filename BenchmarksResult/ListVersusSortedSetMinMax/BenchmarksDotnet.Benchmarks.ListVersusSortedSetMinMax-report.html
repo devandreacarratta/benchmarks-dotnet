@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>BenchmarksDotnet.Benchmarks.ListVersusSortedSetMinMax-20240321-062258</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.12, Windows 10 (10.0.19045.4170/22H2/2022Update)
+Intel Xeon W-2123 CPU 3.60GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 8.0.202
+  [Host]     : .NET 6.0.28 (6.0.2824.12007), X64 RyuJIT AVX2 [AttachedDebugger]
+  Job-UPMPYD : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+  Job-ZOXBHM : .NET 6.0.28 (6.0.2824.12007), X64 RyuJIT AVX2
+</code></pre>
+<pre><code>InvocationCount=1  UnrollFactor=1  
+</code></pre>
+
+<table>
+<thead><tr><th>Method        </th><th>Runtime</th><th>ItemsToAdd</th><th>Mean  </th><th>Error</th><th>StdDev</th><th>Median</th><th>Rank</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>MaxItemFromList</td><td>.NET 8.0</td><td>10</td><td>1.323 &mu;s</td><td>0.0510 &mu;s</td><td>0.1455 &mu;s</td><td>1.300 &mu;s</td><td>1</td><td>400 B</td>
+</tr><tr><td>MixItemFromList</td><td>.NET 8.0</td><td>100</td><td>1.343 &mu;s</td><td>0.0327 &mu;s</td><td>0.0690 &mu;s</td><td>1.300 &mu;s</td><td>1</td><td>400 B</td>
+</tr><tr><td>MixItemFromList</td><td>.NET 8.0</td><td>10</td><td>1.432 &mu;s</td><td>0.0910 &mu;s</td><td>0.2640 &mu;s</td><td>1.300 &mu;s</td><td>1</td><td>400 B</td>
+</tr><tr><td>MaxItemFromList</td><td>.NET 8.0</td><td>100</td><td>1.486 &mu;s</td><td>0.0584 &mu;s</td><td>0.1588 &mu;s</td><td>1.450 &mu;s</td><td>2</td><td>400 B</td>
+</tr><tr><td>MaxItemFromList</td><td>.NET 6.0</td><td>10</td><td>1.914 &mu;s</td><td>0.0434 &mu;s</td><td>0.0866 &mu;s</td><td>1.900 &mu;s</td><td>3</td><td>584 B</td>
+</tr><tr><td>MixItemFromList</td><td>.NET 6.0</td><td>10</td><td>2.043 &mu;s</td><td>0.0444 &mu;s</td><td>0.0975 &mu;s</td><td>2.000 &mu;s</td><td>4</td><td>584 B</td>
+</tr><tr><td>MaxItemFromList</td><td>.NET 8.0</td><td>1000</td><td>2.615 &mu;s</td><td>0.0535 &mu;s</td><td>0.0732 &mu;s</td><td>2.600 &mu;s</td><td>5</td><td>400 B</td>
+</tr><tr><td>MaxItemFromList</td><td>.NET 6.0</td><td>100</td><td>2.642 &mu;s</td><td>0.0561 &mu;s</td><td>0.0937 &mu;s</td><td>2.600 &mu;s</td><td>5</td><td>584 B</td>
+</tr><tr><td>MixItemFromList</td><td>.NET 6.0</td><td>100</td><td>2.711 &mu;s</td><td>0.0579 &mu;s</td><td>0.1320 &mu;s</td><td>2.700 &mu;s</td><td>5</td><td>584 B</td>
+</tr><tr><td>MinItemFromSortedSet</td><td>.NET 6.0</td><td>10</td><td>2.789 &mu;s</td><td>0.0614 &mu;s</td><td>0.1448 &mu;s</td><td>2.800 &mu;s</td><td>5</td><td>712 B</td>
+</tr><tr><td>MaxItemFromSortedSet</td><td>.NET 6.0</td><td>10</td><td>2.982 &mu;s</td><td>0.0626 &mu;s</td><td>0.1335 &mu;s</td><td>3.000 &mu;s</td><td>6</td><td>712 B</td>
+</tr><tr><td>MixItemFromList</td><td>.NET 8.0</td><td>1000</td><td>3.003 &mu;s</td><td>0.1450 &mu;s</td><td>0.4114 &mu;s</td><td>2.900 &mu;s</td><td>6</td><td>400 B</td>
+</tr><tr><td>MinItemFromSortedSet</td><td>.NET 8.0</td><td>10</td><td>4.744 &mu;s</td><td>0.0981 &mu;s</td><td>0.0964 &mu;s</td><td>4.750 &mu;s</td><td>7</td><td>552 B</td>
+</tr><tr><td>MaxItemFromSortedSet</td><td>.NET 8.0</td><td>10</td><td>4.832 &mu;s</td><td>0.0997 &mu;s</td><td>0.1108 &mu;s</td><td>4.800 &mu;s</td><td>7</td><td>552 B</td>
+</tr><tr><td>MaxItemFromSortedSet</td><td>.NET 6.0</td><td>100</td><td>5.512 &mu;s</td><td>0.1130 &mu;s</td><td>0.1509 &mu;s</td><td>5.500 &mu;s</td><td>8</td><td>760 B</td>
+</tr><tr><td>MinItemFromSortedSet</td><td>.NET 6.0</td><td>100</td><td>5.567 &mu;s</td><td>0.1119 &mu;s</td><td>0.1047 &mu;s</td><td>5.500 &mu;s</td><td>8</td><td>760 B</td>
+</tr><tr><td>MaxItemFromList</td><td>.NET 6.0</td><td>1000</td><td>9.771 &mu;s</td><td>0.1910 &mu;s</td><td>0.1961 &mu;s</td><td>9.700 &mu;s</td><td>9</td><td>584 B</td>
+</tr><tr><td>MixItemFromList</td><td>.NET 6.0</td><td>1000</td><td>9.785 &mu;s</td><td>0.1896 &mu;s</td><td>0.2183 &mu;s</td><td>9.800 &mu;s</td><td>9</td><td>584 B</td>
+</tr><tr><td>MaxItemFromSortedSet</td><td>.NET 8.0</td><td>100</td><td>13.213 &mu;s</td><td>0.2486 &mu;s</td><td>0.2326 &mu;s</td><td>13.300 &mu;s</td><td>10</td><td>600 B</td>
+</tr><tr><td>MinItemFromSortedSet</td><td>.NET 8.0</td><td>100</td><td>13.231 &mu;s</td><td>0.2261 &mu;s</td><td>0.1888 &mu;s</td><td>13.200 &mu;s</td><td>10</td><td>600 B</td>
+</tr><tr><td>MixItemFromList</td><td>.NET 8.0</td><td>10000</td><td>14.236 &mu;s</td><td>0.5474 &mu;s</td><td>1.5259 &mu;s</td><td>14.050 &mu;s</td><td>11</td><td>400 B</td>
+</tr><tr><td>MaxItemFromList</td><td>.NET 8.0</td><td>10000</td><td>14.616 &mu;s</td><td>0.6796 &mu;s</td><td>1.9278 &mu;s</td><td>14.150 &mu;s</td><td>11</td><td>400 B</td>
+</tr><tr><td>MaxItemFromSortedSet</td><td>.NET 6.0</td><td>1000</td><td>29.262 &mu;s</td><td>0.3510 &mu;s</td><td>0.2931 &mu;s</td><td>29.300 &mu;s</td><td>12</td><td>808 B</td>
+</tr><tr><td>MinItemFromSortedSet</td><td>.NET 6.0</td><td>1000</td><td>30.214 &mu;s</td><td>0.4147 &mu;s</td><td>0.3676 &mu;s</td><td>30.250 &mu;s</td><td>13</td><td>808 B</td>
+</tr><tr><td>MaxItemFromList</td><td>.NET 8.0</td><td>100000</td><td>44.956 &mu;s</td><td>4.5136 &mu;s</td><td>13.2376 &mu;s</td><td>50.600 &mu;s</td><td>14</td><td>400 B</td>
+</tr><tr><td>MixItemFromList</td><td>.NET 8.0</td><td>100000</td><td>54.829 &mu;s</td><td>0.9648 &mu;s</td><td>0.8552 &mu;s</td><td>54.550 &mu;s</td><td>15</td><td>400 B</td>
+</tr><tr><td>MaxItemFromList</td><td>.NET 6.0</td><td>10000</td><td>80.014 &mu;s</td><td>1.5498 &mu;s</td><td>1.3739 &mu;s</td><td>80.700 &mu;s</td><td>16</td><td>536 B</td>
+</tr><tr><td>MixItemFromList</td><td>.NET 6.0</td><td>10000</td><td>82.593 &mu;s</td><td>1.4510 &mu;s</td><td>1.3572 &mu;s</td><td>82.600 &mu;s</td><td>17</td><td>584 B</td>
+</tr><tr><td>MaxItemFromSortedSet</td><td>.NET 8.0</td><td>1000</td><td>99.478 &mu;s</td><td>5.1964 &mu;s</td><td>14.7414 &mu;s</td><td>101.100 &mu;s</td><td>18</td><td>648 B</td>
+</tr><tr><td>MinItemFromSortedSet</td><td>.NET 8.0</td><td>1000</td><td>101.305 &mu;s</td><td>4.7616 &mu;s</td><td>13.8142 &mu;s</td><td>102.000 &mu;s</td><td>18</td><td>648 B</td>
+</tr><tr><td>MaxItemFromSortedSet</td><td>.NET 6.0</td><td>10000</td><td>267.704 &mu;s</td><td>5.2377 &mu;s</td><td>6.6240 &mu;s</td><td>265.800 &mu;s</td><td>19</td><td>824 B</td>
+</tr><tr><td>MinItemFromSortedSet</td><td>.NET 6.0</td><td>10000</td><td>269.935 &mu;s</td><td>3.9871 &mu;s</td><td>3.3294 &mu;s</td><td>269.750 &mu;s</td><td>19</td><td>872 B</td>
+</tr><tr><td>MaxItemFromSortedSet</td><td>.NET 8.0</td><td>10000</td><td>606.038 &mu;s</td><td>3.3668 &mu;s</td><td>2.8114 &mu;s</td><td>606.800 &mu;s</td><td>20</td><td>712 B</td>
+</tr><tr><td>MinItemFromSortedSet</td><td>.NET 8.0</td><td>10000</td><td>608.071 &mu;s</td><td>5.2376 &mu;s</td><td>4.6430 &mu;s</td><td>608.250 &mu;s</td><td>20</td><td>712 B</td>
+</tr><tr><td>MixItemFromList</td><td>.NET 6.0</td><td>100000</td><td>695.175 &mu;s</td><td>13.3149 &mu;s</td><td>17.3131 &mu;s</td><td>695.500 &mu;s</td><td>21</td><td>536 B</td>
+</tr><tr><td>MaxItemFromList</td><td>.NET 6.0</td><td>100000</td><td>744.179 &mu;s</td><td>14.6638 &mu;s</td><td>16.2988 &mu;s</td><td>749.300 &mu;s</td><td>22</td><td>536 B</td>
+</tr><tr><td>MaxItemFromSortedSet</td><td>.NET 8.0</td><td>100000</td><td>1,100.830 &mu;s</td><td>17.0725 &mu;s</td><td>15.9697 &mu;s</td><td>1,094.650 &mu;s</td><td>23</td><td>760 B</td>
+</tr><tr><td>MinItemFromSortedSet</td><td>.NET 8.0</td><td>100000</td><td>1,111.667 &mu;s</td><td>6.3474 &mu;s</td><td>5.9374 &mu;s</td><td>1,112.900 &mu;s</td><td>23</td><td>760 B</td>
+</tr><tr><td>MaxItemFromSortedSet</td><td>.NET 6.0</td><td>100000</td><td>2,289.525 &mu;s</td><td>44.5649 &mu;s</td><td>69.3822 &mu;s</td><td>2,277.900 &mu;s</td><td>24</td><td>872 B</td>
+</tr><tr><td>MinItemFromSortedSet</td><td>.NET 6.0</td><td>100000</td><td>2,294.323 &mu;s</td><td>42.7163 &mu;s</td><td>35.6700 &mu;s</td><td>2,293.800 &mu;s</td><td>24</td><td>872 B</td>
+</tr></tbody></table>
+</body>
+</html>

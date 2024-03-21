@@ -9,16 +9,19 @@ using System.Reflection;
 
 List<Type> benchmarkTypes = new()
 {
-    //typeof(BenchmarksDotnet.Benchmarks.GuidToString),
-    //typeof(BenchmarksDotnet.Benchmarks.StringEqualsPerformance),
-    //typeof(BenchmarksDotnet.Benchmarks.StringComparePerformance),
     //typeof(BenchmarksDotnet.Benchmarks.DictionaryVersusSortedAddItems),
     //typeof(BenchmarksDotnet.Benchmarks.DictionaryVersusSortedTryAddItems),
-    //typeof(BenchmarksDotnet.Benchmarks.NewtonsoftVersusJsonSerializerDeserialize),
-    //typeof(BenchmarksDotnet.Benchmarks.NewtonsoftVersusJsonSerializerSerialize),
+    //typeof(BenchmarksDotnet.Benchmarks.GuidToString),
+    //typeof(BenchmarksDotnet.Benchmarks.IEnumerableVersusYield),
     //typeof(BenchmarksDotnet.Benchmarks.ListSortVersusLinq),
     //typeof(BenchmarksDotnet.Benchmarks.ListSortVersusLinqDescending),
-    typeof(BenchmarksDotnet.Benchmarks.IEnumerableVersusYield),
+    //typeof(BenchmarksDotnet.Benchmarks.ListVersusSortedSetAddItems),
+    //typeof(BenchmarksDotnet.Benchmarks.ListVersusSortedSetMinMax),
+    //typeof(BenchmarksDotnet.Benchmarks.ListVersusSortedSetSearchItem),
+    //typeof(BenchmarksDotnet.Benchmarks.NewtonsoftVersusJsonSerializerDeserialize),
+    //typeof(BenchmarksDotnet.Benchmarks.NewtonsoftVersusJsonSerializerSerialize),
+    //typeof(BenchmarksDotnet.Benchmarks.StringComparePerformance),
+    //typeof(BenchmarksDotnet.Benchmarks.StringEqualsPerformance),
 };
 
 var config = DefaultConfig.Instance
