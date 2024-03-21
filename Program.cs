@@ -20,8 +20,8 @@ List<Type> benchmarkTypes = new()
     //typeof(ListSortVersusLinq),
     //typeof(ListSortVersusLinqDescending),
     //typeof(IEnumerableVersusYield),
-    //typeof(ListVersusSortedSetSearchItems)
-    //typeof(ListVersusSortedSetSearchItems)
+    //typeof(ListVersusSortedSetSearchItem),
+    //typeof(ListVersusSortedSetAddItems),
     //typeof(ListVersusSortedSetMinMax)
 };
 

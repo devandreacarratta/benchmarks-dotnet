@@ -1,6 +1,6 @@
 ﻿namespace BenchmarksDotnet.Benchmarks
 {
-    public class ListVersusSortedSetSearchItems
+    public class ListVersusSortedSetSearchItem
     {
         [Params(10, 100, 1_000, 10_000, 100_000)]
         public int ItemsToAdd;
