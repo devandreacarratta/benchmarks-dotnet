@@ -18,7 +18,8 @@ List<Type> benchmarkTypes = new()
     //typeof(BenchmarksDotnet.Benchmarks.NewtonsoftVersusJsonSerializerSerialize),
     //typeof(BenchmarksDotnet.Benchmarks.ListSortVersusLinq),
     //typeof(BenchmarksDotnet.Benchmarks.ListSortVersusLinqDescending),
-    typeof(BenchmarksDotnet.Benchmarks.IEnumerableVersusYield),
+    //typeof(BenchmarksDotnet.Benchmarks.IEnumerableVersusYield),
+    typeof(BenchmarksDotnet.Benchmarks.ListVersusSortedSetAddItems)
 };
 
 var config = DefaultConfig.Instance
