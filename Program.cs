@@ -5,24 +5,23 @@ using BenchmarkDotNet.Environments;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Order;
 using BenchmarkDotNet.Running;
-using BenchmarksDotnet.Benchmarks;
 using System.Reflection;
 
 List<Type> benchmarkTypes = new()
 {
-    //typeof(GuidToString),
-    //typeof(StringEqualsPerformance),
-    //typeof(StringComparePerformance),
-    //typeof(DictionaryVersusSortedAddItems),
-    //typeof(DictionaryVersusSortedTryAddItems),
-    //typeof(NewtonsoftVersusJsonSerializerDeserialize),
-    //typeof(NewtonsoftVersusJsonSerializerSerialize),
-    //typeof(ListSortVersusLinq),
-    //typeof(ListSortVersusLinqDescending),
-    //typeof(IEnumerableVersusYield),
-    //typeof(ListVersusSortedSetSearchItem),
-    //typeof(ListVersusSortedSetAddItems),
-    //typeof(ListVersusSortedSetMinMax)
+    //typeof(BenchmarksDotnet.Benchmarks.DictionaryVersusSortedAddItems),
+    //typeof(BenchmarksDotnet.Benchmarks.DictionaryVersusSortedTryAddItems),
+    //typeof(BenchmarksDotnet.Benchmarks.GuidToString),
+    //typeof(BenchmarksDotnet.Benchmarks.IEnumerableVersusYield),
+    //typeof(BenchmarksDotnet.Benchmarks.ListSortVersusLinq),
+    //typeof(BenchmarksDotnet.Benchmarks.ListSortVersusLinqDescending),
+    //typeof(BenchmarksDotnet.Benchmarks.ListVersusSortedSetAddItems),
+    //typeof(BenchmarksDotnet.Benchmarks.ListVersusSortedSetMinMax),
+    //typeof(BenchmarksDotnet.Benchmarks.ListVersusSortedSetSearchItem),
+    //typeof(BenchmarksDotnet.Benchmarks.NewtonsoftVersusJsonSerializerDeserialize),
+    //typeof(BenchmarksDotnet.Benchmarks.NewtonsoftVersusJsonSerializerSerialize),
+    //typeof(BenchmarksDotnet.Benchmarks.StringComparePerformance),
+    //typeof(BenchmarksDotnet.Benchmarks.StringEqualsPerformance),
 };
 
 var config = DefaultConfig.Instance
