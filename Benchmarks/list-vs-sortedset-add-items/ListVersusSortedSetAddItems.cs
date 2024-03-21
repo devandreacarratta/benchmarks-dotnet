@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BenchmarksDotnet.Benchmarks
+﻿namespace BenchmarksDotnet.Benchmarks
 {
     public class ListVersusSortedSetAddItems
     {
@@ -16,7 +10,7 @@ namespace BenchmarksDotnet.Benchmarks
         [IterationSetup()]
         public void Setup()
         {
-            _items= Enumerable.Range(0, ItemsToAdd)
+            _items = Enumerable.Range(0, ItemsToAdd)
                 .OrderBy(x => Guid.NewGuid())
                 .ToArray();
         }
@@ -25,7 +19,8 @@ namespace BenchmarksDotnet.Benchmarks
         public void AddItemsToList()
         {
             var list = new List<int>();
-            foreach(var item in _items) {
+            foreach (var item in _items)
+            {
                 list.Add(item);
             }
         }
@@ -38,6 +33,6 @@ namespace BenchmarksDotnet.Benchmarks
             {
                 list.Add(item);
             }
-        }       
+        }
     }
 }
