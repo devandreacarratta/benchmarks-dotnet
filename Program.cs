@@ -22,6 +22,8 @@ List<Type> benchmarkTypes = new()
     //typeof(BenchmarksDotnet.Benchmarks.NewtonsoftVersusJsonSerializerSerialize),
     //typeof(BenchmarksDotnet.Benchmarks.StringComparePerformance),
     //typeof(BenchmarksDotnet.Benchmarks.StringEqualsPerformance),
+    //typeof(BenchmarksDotnet.Benchmarks.StringConcatenation),
+    //typeof(BenchmarksDotnet.Benchmarks.StringConcatenationWithSeparator),
 };
 
 var config = DefaultConfig.Instance
