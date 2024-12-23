@@ -8,4 +8,4 @@ public class InternalConfiguration
     public string[] CoreRuntimes { get; set; } = default!;
 }
 
-public record InternalConfigurationBenchmark(string Type , bool Exclude);
+public record InternalConfigurationBenchmark(string Type, bool Exclude);

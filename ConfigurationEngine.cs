@@ -28,12 +28,6 @@ public class ConfigurationEngine
         CORE_90
     };
 
-    internal   string Export(InternalConfiguration item)
-    {
-        var result = System.Text.Json.JsonSerializer.Serialize(item);
-        return result;
-    }
-
     internal static InternalConfiguration Read(string resourceName = "BenchmarksDotnet.EmbeddedResource.configuration.json")
     {
         var assembly = Assembly.GetExecutingAssembly();

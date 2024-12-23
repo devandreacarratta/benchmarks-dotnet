@@ -5,7 +5,7 @@ using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Order;
 using BenchmarkDotNet.Running;
 using System.Collections.Immutable;
- 
+
 var configuration = ConfigurationEngine.Read();
 
 var items = configuration.Benchmarks
@@ -18,7 +18,7 @@ var coreRuntimes = configuration.CoreRuntimes
     .ToImmutableList();
 
 foreach (var item in items)
-{   
+{
     var config = DefaultConfig.Instance
         .AddDiagnoser(MemoryDiagnoser.Default)
         .WithOrderer(new DefaultOrderer(SummaryOrderPolicy.FastestToSlowest))
