@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>BenchmarksDotnet.Benchmarks.ListVersusSortedSetAddItems-20241223-151651</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 10 (10.0.19045.5247/22H2/2022Update)
+Intel Xeon W-2123 CPU 3.60GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 9.0.101
+  [Host]     : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2 [AttachedDebugger]
+  Job-SLZKTL : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2
+  Job-QBPARD : .NET 9.0.0 (9.0.24.52809), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+  Job-JEZIMU : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+</code></pre>
+<pre><code>InvocationCount=1  UnrollFactor=1  
+</code></pre>
+
+<table>
+<thead><tr><th>Method       </th><th>Runtime</th><th>ItemsToAdd</th><th>Mean   </th><th>Error</th><th>StdDev</th><th>Median </th><th>Rank</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>AddItemsToList</td><td>.NET 6.0</td><td>10</td><td>1.596 &mu;s</td><td>0.0489 &mu;s</td><td>0.1435 &mu;s</td><td>1.600 &mu;s</td><td>1</td><td>856 B</td>
+</tr><tr><td>AddItemsToList</td><td>.NET 9.0</td><td>10</td><td>1.763 &mu;s</td><td>0.0657 &mu;s</td><td>0.1885 &mu;s</td><td>1.700 &mu;s</td><td>2</td><td>616 B</td>
+</tr><tr><td>AddItemsToList</td><td>.NET 8.0</td><td>10</td><td>1.939 &mu;s</td><td>0.0713 &mu;s</td><td>0.2079 &mu;s</td><td>1.900 &mu;s</td><td>3</td><td>616 B</td>
+</tr><tr><td>AddItemsToList</td><td>.NET 6.0</td><td>100</td><td>2.022 &mu;s</td><td>0.0438 &mu;s</td><td>0.1042 &mu;s</td><td>2.000 &mu;s</td><td>3</td><td>1824 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 6.0</td><td>10</td><td>2.566 &mu;s</td><td>0.1004 &mu;s</td><td>0.2898 &mu;s</td><td>2.600 &mu;s</td><td>4</td><td>1088 B</td>
+</tr><tr><td>AddItemsToList</td><td>.NET 9.0</td><td>100</td><td>2.789 &mu;s</td><td>0.1099 &mu;s</td><td>0.3063 &mu;s</td><td>2.700 &mu;s</td><td>4</td><td>1248 B</td>
+</tr><tr><td>AddItemsToList</td><td>.NET 8.0</td><td>100</td><td>3.020 &mu;s</td><td>0.0871 &mu;s</td><td>0.2528 &mu;s</td><td>3.000 &mu;s</td><td>5</td><td>1584 B</td>
+</tr><tr><td>AddItemsToList</td><td>.NET 6.0</td><td>1000</td><td>3.732 &mu;s</td><td>0.0782 &mu;s</td><td>0.2061 &mu;s</td><td>3.700 &mu;s</td><td>6</td><td>9064 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 9.0</td><td>10</td><td>3.899 &mu;s</td><td>0.1058 &mu;s</td><td>0.3070 &mu;s</td><td>3.900 &mu;s</td><td>6</td><td>560 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 8.0</td><td>10</td><td>4.158 &mu;s</td><td>0.1139 &mu;s</td><td>0.3211 &mu;s</td><td>4.100 &mu;s</td><td>7</td><td>512 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 6.0</td><td>100</td><td>13.284 &mu;s</td><td>0.2694 &mu;s</td><td>0.4647 &mu;s</td><td>13.300 &mu;s</td><td>8</td><td>4688 B</td>
+</tr><tr><td>AddItemsToList</td><td>.NET 8.0</td><td>1000</td><td>18.400 &mu;s</td><td>1.1449 &mu;s</td><td>3.2849 &mu;s</td><td>19.300 &mu;s</td><td>9</td><td>8824 B</td>
+</tr><tr><td>AddItemsToList</td><td>.NET 9.0</td><td>1000</td><td>18.410 &mu;s</td><td>1.0065 &mu;s</td><td>2.9201 &mu;s</td><td>19.300 &mu;s</td><td>9</td><td>8824 B</td>
+</tr><tr><td>AddItemsToList</td><td>.NET 6.0</td><td>10000</td><td>25.589 &mu;s</td><td>0.5149 &mu;s</td><td>0.7218 &mu;s</td><td>25.300 &mu;s</td><td>10</td><td>132040 B</td>
+</tr><tr><td>AddItemsToList</td><td>.NET 8.0</td><td>10000</td><td>34.131 &mu;s</td><td>0.6677 &mu;s</td><td>1.6504 &mu;s</td><td>33.650 &mu;s</td><td>11</td><td>131800 B</td>
+</tr><tr><td>AddItemsToList</td><td>.NET 9.0</td><td>10000</td><td>38.503 &mu;s</td><td>1.6829 &mu;s</td><td>4.8287 &mu;s</td><td>36.600 &mu;s</td><td>12</td><td>131512 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 8.0</td><td>100</td><td>41.534 &mu;s</td><td>1.1114 &mu;s</td><td>3.1349 &mu;s</td><td>42.250 &mu;s</td><td>12</td><td>4160 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 9.0</td><td>100</td><td>42.254 &mu;s</td><td>1.3209 &mu;s</td><td>3.7472 &mu;s</td><td>42.900 &mu;s</td><td>12</td><td>4160 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 6.0</td><td>1000</td><td>145.493 &mu;s</td><td>2.7332 &mu;s</td><td>2.5566 &mu;s</td><td>146.600 &mu;s</td><td>13</td><td>40688 B</td>
+</tr><tr><td>AddItemsToList</td><td>.NET 6.0</td><td>100000</td><td>319.904 &mu;s</td><td>6.3557 &mu;s</td><td>8.6998 &mu;s</td><td>316.950 &mu;s</td><td>14</td><td>1049616 B</td>
+</tr><tr><td>AddItemsToList</td><td>.NET 9.0</td><td>100000</td><td>345.797 &mu;s</td><td>19.8744 &mu;s</td><td>57.6594 &mu;s</td><td>348.100 &mu;s</td><td>14</td><td>1049088 B</td>
+</tr><tr><td>AddItemsToList</td><td>.NET 8.0</td><td>100000</td><td>347.195 &mu;s</td><td>20.4608 &mu;s</td><td>59.6852 &mu;s</td><td>354.200 &mu;s</td><td>14</td><td>1049376 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 8.0</td><td>1000</td><td>440.179 &mu;s</td><td>5.9157 &mu;s</td><td>5.2441 &mu;s</td><td>439.250 &mu;s</td><td>15</td><td>40112 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 9.0</td><td>1000</td><td>446.115 &mu;s</td><td>4.1702 &mu;s</td><td>3.4823 &mu;s</td><td>446.200 &mu;s</td><td>15</td><td>40448 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 9.0</td><td>10000</td><td>1,293.888 &mu;s</td><td>20.8096 &mu;s</td><td>51.4362 &mu;s</td><td>1,280.050 &mu;s</td><td>16</td><td>400160 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 8.0</td><td>10000</td><td>1,374.142 &mu;s</td><td>25.4522 &mu;s</td><td>52.5631 &mu;s</td><td>1,352.550 &mu;s</td><td>17</td><td>400448 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 6.0</td><td>10000</td><td>1,838.158 &mu;s</td><td>11.8978 &mu;s</td><td>9.2890 &mu;s</td><td>1,837.500 &mu;s</td><td>18</td><td>400688 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 9.0</td><td>100000</td><td>19,988.907 &mu;s</td><td>396.5176 &mu;s</td><td>593.4890 &mu;s</td><td>19,750.100 &mu;s</td><td>19</td><td>4000160 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 8.0</td><td>100000</td><td>21,122.613 &mu;s</td><td>396.5142 &mu;s</td><td>593.4838 &mu;s</td><td>21,024.400 &mu;s</td><td>20</td><td>4000448 B</td>
+</tr><tr><td>AddItemsToSortedSet</td><td>.NET 6.0</td><td>100000</td><td>24,117.266 &mu;s</td><td>476.7045 &mu;s</td><td>822.2919 &mu;s</td><td>23,879.500 &mu;s</td><td>21</td><td>4000688 B</td>
+</tr></tbody></table>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>BenchmarksDotnet.Benchmarks.DictionaryVersusSortedAddItems-20241223-151112</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 10 (10.0.19045.5247/22H2/2022Update)
+Intel Xeon W-2123 CPU 3.60GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 9.0.101
+  [Host]     : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2 [AttachedDebugger]
+  Job-SLZKTL : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2
+  Job-QBPARD : .NET 9.0.0 (9.0.24.52809), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+  Job-JEZIMU : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+</code></pre>
+<pre><code>InvocationCount=1  UnrollFactor=1  
+</code></pre>
+
+<table>
+<thead><tr><th>Method         </th><th>Runtime</th><th>ItemsToAdd</th><th>Mean  </th><th>Error</th><th>StdDev</th><th>Median</th><th>Rank</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>AddToDictionary</td><td>.NET 6.0</td><td>10</td><td>1.812 &mu;s</td><td>0.0529 &mu;s</td><td>0.1536 &mu;s</td><td>1.800 &mu;s</td><td>1</td><td>1336 B</td>
+</tr><tr><td>AddToSortedDictionary</td><td>.NET 6.0</td><td>10</td><td>2.432 &mu;s</td><td>0.0730 &mu;s</td><td>0.2105 &mu;s</td><td>2.400 &mu;s</td><td>2</td><td>1120 B</td>
+</tr><tr><td>AddToDictionary</td><td>.NET 9.0</td><td>10</td><td>2.529 &mu;s</td><td>0.0802 &mu;s</td><td>0.2327 &mu;s</td><td>2.500 &mu;s</td><td>2</td><td>1096 B</td>
+</tr><tr><td>AddToDictionary</td><td>.NET 8.0</td><td>10</td><td>2.843 &mu;s</td><td>0.0959 &mu;s</td><td>0.2784 &mu;s</td><td>2.800 &mu;s</td><td>3</td><td>1096 B</td>
+</tr><tr><td>AddToSortedDictionary</td><td>.NET 9.0</td><td>10</td><td>4.253 &mu;s</td><td>0.0900 &mu;s</td><td>0.2121 &mu;s</td><td>4.200 &mu;s</td><td>4</td><td>592 B</td>
+</tr><tr><td>AddToDictionary</td><td>.NET 9.0</td><td>100</td><td>4.362 &mu;s</td><td>0.1234 &mu;s</td><td>0.3581 &mu;s</td><td>4.300 &mu;s</td><td>4</td><td>7712 B</td>
+</tr><tr><td>AddToDictionary</td><td>.NET 6.0</td><td>100</td><td>4.439 &mu;s</td><td>0.3436 &mu;s</td><td>1.0078 &mu;s</td><td>4.900 &mu;s</td><td>4</td><td>7952 B</td>
+</tr><tr><td>AddToSortedDictionary</td><td>.NET 8.0</td><td>10</td><td>4.559 &mu;s</td><td>0.1116 &mu;s</td><td>0.3130 &mu;s</td><td>4.600 &mu;s</td><td>4</td><td>1120 B</td>
+</tr><tr><td>AddToDictionary</td><td>.NET 8.0</td><td>100</td><td>4.597 &mu;s</td><td>0.1345 &mu;s</td><td>0.3815 &mu;s</td><td>4.500 &mu;s</td><td>4</td><td>7712 B</td>
+</tr><tr><td>AddToSortedDictionary</td><td>.NET 6.0</td><td>100</td><td>17.280 &mu;s</td><td>0.3341 &mu;s</td><td>0.3847 &mu;s</td><td>17.200 &mu;s</td><td>5</td><td>5440 B</td>
+</tr><tr><td>AddToDictionary</td><td>.NET 6.0</td><td>1000</td><td>18.151 &mu;s</td><td>0.3623 &mu;s</td><td>0.5953 &mu;s</td><td>18.000 &mu;s</td><td>5</td><td>73728 B</td>
+</tr><tr><td>AddToDictionary</td><td>.NET 8.0</td><td>1000</td><td>25.041 &mu;s</td><td>0.5049 &mu;s</td><td>1.4076 &mu;s</td><td>24.800 &mu;s</td><td>6</td><td>73488 B</td>
+</tr><tr><td>AddToDictionary</td><td>.NET 9.0</td><td>1000</td><td>25.413 &mu;s</td><td>0.5938 &mu;s</td><td>1.7038 &mu;s</td><td>24.950 &mu;s</td><td>6</td><td>73488 B</td>
+</tr><tr><td>AddToSortedDictionary</td><td>.NET 8.0</td><td>100</td><td>44.436 &mu;s</td><td>0.8733 &mu;s</td><td>1.2525 &mu;s</td><td>44.400 &mu;s</td><td>7</td><td>7600 B</td>
+</tr><tr><td>AddToSortedDictionary</td><td>.NET 9.0</td><td>100</td><td>44.937 &mu;s</td><td>0.8892 &mu;s</td><td>1.2466 &mu;s</td><td>44.400 &mu;s</td><td>7</td><td>5200 B</td>
+</tr><tr><td>AddToDictionary</td><td>.NET 9.0</td><td>10000</td><td>199.171 &mu;s</td><td>2.0878 &mu;s</td><td>1.8507 &mu;s</td><td>199.000 &mu;s</td><td>8</td><td>673384 B</td>
+</tr><tr><td>AddToDictionary</td><td>.NET 8.0</td><td>10000</td><td>204.894 &mu;s</td><td>4.0865 &mu;s</td><td>8.2549 &mu;s</td><td>201.800 &mu;s</td><td>8</td><td>673384 B</td>
+</tr><tr><td>AddToDictionary</td><td>.NET 6.0</td><td>10000</td><td>205.814 &mu;s</td><td>3.9797 &mu;s</td><td>9.7623 &mu;s</td><td>201.400 &mu;s</td><td>8</td><td>673624 B</td>
+</tr><tr><td>AddToSortedDictionary</td><td>.NET 6.0</td><td>1000</td><td>219.008 &mu;s</td><td>3.4844 &mu;s</td><td>2.9096 &mu;s</td><td>217.800 &mu;s</td><td>9</td><td>48640 B</td>
+</tr><tr><td>AddToSortedDictionary</td><td>.NET 8.0</td><td>1000</td><td>563.158 &mu;s</td><td>5.1782 &mu;s</td><td>4.0428 &mu;s</td><td>563.850 &mu;s</td><td>10</td><td>72376 B</td>
+</tr><tr><td>AddToSortedDictionary</td><td>.NET 9.0</td><td>1000</td><td>572.957 &mu;s</td><td>7.7399 &mu;s</td><td>6.8612 &mu;s</td><td>570.450 &mu;s</td><td>10</td><td>48112 B</td>
+</tr><tr><td>AddToSortedDictionary</td><td>.NET 6.0</td><td>10000</td><td>2,300.974 &mu;s</td><td>218.0011 &mu;s</td><td>628.9830 &mu;s</td><td>1,909.850 &mu;s</td><td>11</td><td>480640 B</td>
+</tr><tr><td>AddToSortedDictionary</td><td>.NET 8.0</td><td>10000</td><td>6,733.393 &mu;s</td><td>91.3417 &mu;s</td><td>80.9720 &mu;s</td><td>6,741.500 &mu;s</td><td>12</td><td>504376 B</td>
+</tr><tr><td>AddToSortedDictionary</td><td>.NET 9.0</td><td>10000</td><td>6,915.979 &mu;s</td><td>119.2186 &mu;s</td><td>105.6842 &mu;s</td><td>6,944.650 &mu;s</td><td>12</td><td>480400 B</td>
+</tr></tbody></table>
+</body>
+</html>

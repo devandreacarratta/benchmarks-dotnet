@@ -1,0 +1,22 @@
+{
+	"BaseFolderResult": "../../../Benchmarks/",
+	"DefaultNamespace": "BenchmarksDotnet.Benchmarks",
+	"CoreRuntimes": ["Core60","Core80","Core90"],
+	"Benchmarks": {
+		"dictionary-vs-sorted-add-items":{"Type":"DictionaryVersusSortedAddItems","Exclude":true},
+		"dictionary-vs-sorted-try-add-items":{"Type":"DictionaryVersusSortedTryAddItems","Exclude":true},
+		"guid-to-string":{"Type":"GuidToString","Exclude":true},
+		"ienumerable-vs-yield":{"Type":"IEnumerableVersusYield","Exclude":true},
+		"list-sort-vs-linq":{"Type":"ListSortVersusLinq","Exclude":true},
+		"list-sort-vs-linq-descending":{"Type":"ListSortVersusLinqDescending","Exclude":true},
+		"list-vs-sortedset-add-items":{"Type":"ListVersusSortedSetAddItems","Exclude":true},
+		"list-vs-sortedset-min-max":{"Type":"ListVersusSortedSetMinMax","Exclude":true},
+		"list-vs-sortedset-search-item":{"Type":"ListVersusSortedSetSearchItem","Exclude":true},
+		"newtonsoft-vs-jsonserializer-deserialize":{"Type":"NewtonsoftVersusJsonSerializerDeserialize","Exclude":true},
+		"newtonsoft-vs-jsonserializer-serialize":{"Type":"NewtonsoftVersusJsonSerializerSerialize","Exclude":true},
+		"string-compare-performance":{"Type":"StringComparePerformance","Exclude":true},
+		"string-concatenation":{"Type":"StringConcatenation","Exclude":true},
+		"string-concatenation-separator":{"Type":"StringEqualsPerformance","Exclude":true},
+		"string-equals-performance":{"Type":"StringEqualsPerformance","Exclude":true}
+	}
+}

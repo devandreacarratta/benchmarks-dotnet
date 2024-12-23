@@ -7,7 +7,6 @@ Welcome to our .NET Performance Benchmarks Repository! This project is dedicated
 ## Repository Structure
 
 - **Benchmarks/**: Contains a series of sub-folders, each dedicated to a specific benchmark. Each sub-folder includes the benchmark code and a README with results.
-- **BenchmarksResult/**: Hosts all the benchmark results in different formats (HTML, CSV, MD) for easy access and comparison.
 - **EmbeddedResource/** + **Entities/**: Support folders for the project, containing necessary resources and entity definitions used across benchmarks.
 
 ## Running the Benchmarks
