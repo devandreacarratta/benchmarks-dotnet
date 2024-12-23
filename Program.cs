@@ -1,46 +1,47 @@
 ﻿using BenchmarkDotNet.Columns;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Diagnosers;
-using BenchmarkDotNet.Environments;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Order;
 using BenchmarkDotNet.Running;
-using System.Reflection;
+using System.Collections.Immutable;
+ 
+var configuration = ConfigurationEngine.Read();
 
-List<Type> benchmarkTypes = new()
-{
-    //typeof(BenchmarksDotnet.Benchmarks.DictionaryVersusSortedAddItems),
-    //typeof(BenchmarksDotnet.Benchmarks.DictionaryVersusSortedTryAddItems),
-    //typeof(BenchmarksDotnet.Benchmarks.GuidToString),
-    //typeof(BenchmarksDotnet.Benchmarks.IEnumerableVersusYield),
-    //typeof(BenchmarksDotnet.Benchmarks.ListSortVersusLinq),
-    //typeof(BenchmarksDotnet.Benchmarks.ListSortVersusLinqDescending),
-    //typeof(BenchmarksDotnet.Benchmarks.ListVersusSortedSetAddItems),
-    //typeof(BenchmarksDotnet.Benchmarks.ListVersusSortedSetMinMax),
-    //typeof(BenchmarksDotnet.Benchmarks.ListVersusSortedSetSearchItem),
-    //typeof(BenchmarksDotnet.Benchmarks.NewtonsoftVersusJsonSerializerDeserialize),
-    //typeof(BenchmarksDotnet.Benchmarks.NewtonsoftVersusJsonSerializerSerialize),
-    //typeof(BenchmarksDotnet.Benchmarks.StringComparePerformance),
-    //typeof(BenchmarksDotnet.Benchmarks.StringEqualsPerformance),
-    //typeof(BenchmarksDotnet.Benchmarks.StringConcatenation),
-    //typeof(BenchmarksDotnet.Benchmarks.StringConcatenationWithSeparator),
-};
+var items = configuration.Benchmarks
+    .Where(x => x.Value != null && x.Value.Exclude == false)
+    .ToImmutableList();
 
-var config = DefaultConfig.Instance
-    .AddDiagnoser(MemoryDiagnoser.Default)
-    .WithOrderer(new DefaultOrderer(SummaryOrderPolicy.FastestToSlowest))
-    .AddColumn(RankColumn.Arabic)
-    .AddJob(Job.Default.WithRuntime(CoreRuntime.Core60))
-    .AddJob(Job.Default.WithRuntime(CoreRuntime.Core80));
+var coreRuntimes = configuration.CoreRuntimes
+    .Where(x => Array.IndexOf(ConfigurationEngine.VALID_CORE_RUNTIMES, x) != -1)
+    .Select(x => ConfigurationEngine.ParseRuntime(x))
+    .ToImmutableList();
 
-if (benchmarkTypes == null || benchmarkTypes.Count == 0)
-{
-    _ = BenchmarkRunner.Run(Assembly.GetExecutingAssembly(), config);
-}
-else
-{
-    foreach (var type in benchmarkTypes)
+foreach (var item in items)
+{   
+    var config = DefaultConfig.Instance
+        .AddDiagnoser(MemoryDiagnoser.Default)
+        .WithOrderer(new DefaultOrderer(SummaryOrderPolicy.FastestToSlowest))
+        .AddColumn(RankColumn.Arabic);
+
+    if (string.IsNullOrEmpty(configuration.BaseFolderResult) == false)
     {
-        BenchmarkRunner.Run(type, config);
+        string folder = Path.Combine(configuration.BaseFolderResult, item.Key);
+        config.WithArtifactsPath(folder);
     }
+
+    foreach (var coreRuntime in coreRuntimes)
+    {
+        config.AddJob(
+            Job.Default.WithRuntime(
+                coreRuntime
+            )
+        );
+    }
+
+    string typeName = string.Format("{0}.{1}", configuration.DefaultNamespace, item.Value.Type);
+
+    Type benchmarkType = Type.GetType(typeName)!;
+
+    BenchmarkRunner.Run(benchmarkType, config);
 }

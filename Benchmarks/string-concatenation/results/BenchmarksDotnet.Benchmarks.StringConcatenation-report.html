@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>BenchmarksDotnet.Benchmarks.StringConcatenation-20241223-164151</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 10 (10.0.19045.5247/22H2/2022Update)
+Intel Xeon W-2123 CPU 3.60GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 9.0.101
+  [Host]     : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2 [AttachedDebugger]
+  Job-LQCQGL : .NET 9.0.0 (9.0.24.52809), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+  Job-TELGYO : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2
+  Job-WEACSW : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+</code></pre>
+<pre><code>InvocationCount=1  UnrollFactor=1  
+</code></pre>
+
+<table>
+<thead><tr><th>Method              </th><th>Runtime</th><th>NumberOfItems</th><th>Mean   </th><th>Error  </th><th>StdDev </th><th>Median </th><th>Rank</th><th>Gen0 </th><th>Gen1</th><th>Gen2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>StringJoinToString</td><td>.NET 9.0</td><td>10</td><td>1.491 &mu;s</td><td>0.0742 &mu;s</td><td>0.2176 &mu;s</td><td>1.500 &mu;s</td><td>1</td><td>-</td><td>-</td><td>-</td><td>528 B</td>
+</tr><tr><td>LinqAggregateInterpolation</td><td>.NET 9.0</td><td>10</td><td>1.821 &mu;s</td><td>0.0805 &mu;s</td><td>0.2361 &mu;s</td><td>1.750 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>1168 B</td>
+</tr><tr><td>StringBuilderConcatenation</td><td>.NET 6.0</td><td>10</td><td>1.842 &mu;s</td><td>0.0757 &mu;s</td><td>0.2171 &mu;s</td><td>1.800 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>1112 B</td>
+</tr><tr><td>StringJoinToString</td><td>.NET 6.0</td><td>10</td><td>1.848 &mu;s</td><td>0.0666 &mu;s</td><td>0.1932 &mu;s</td><td>1.800 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>768 B</td>
+</tr><tr><td>LinqAggregate</td><td>.NET 9.0</td><td>10</td><td>1.895 &mu;s</td><td>0.0912 &mu;s</td><td>0.2661 &mu;s</td><td>1.850 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>1168 B</td>
+</tr><tr><td>StringJoinToString</td><td>.NET 8.0</td><td>10</td><td>1.926 &mu;s</td><td>0.0763 &mu;s</td><td>0.2189 &mu;s</td><td>1.900 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>528 B</td>
+</tr><tr><td>StringConcat</td><td>.NET 6.0</td><td>10</td><td>2.017 &mu;s</td><td>0.0744 &mu;s</td><td>0.2181 &mu;s</td><td>2.000 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>808 B</td>
+</tr><tr><td>StringBuilderConcatenation</td><td>.NET 8.0</td><td>10</td><td>2.181 &mu;s</td><td>0.1152 &mu;s</td><td>0.3360 &mu;s</td><td>2.100 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>872 B</td>
+</tr><tr><td>StringBuilderConcatenation</td><td>.NET 9.0</td><td>10</td><td>2.208 &mu;s</td><td>0.0933 &mu;s</td><td>0.2602 &mu;s</td><td>2.100 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>872 B</td>
+</tr><tr><td>StringJoinToString</td><td>.NET 9.0</td><td>100</td><td>2.320 &mu;s</td><td>0.0910 &mu;s</td><td>0.2612 &mu;s</td><td>2.300 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>1424 B</td>
+</tr><tr><td>LinqAggregateInterpolation</td><td>.NET 8.0</td><td>10</td><td>2.489 &mu;s</td><td>0.1493 &mu;s</td><td>0.4136 &mu;s</td><td>2.350 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>1208 B</td>
+</tr><tr><td>LinqAggregateInterpolation</td><td>.NET 6.0</td><td>10</td><td>2.550 &mu;s</td><td>0.1226 &mu;s</td><td>0.3377 &mu;s</td><td>2.500 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>1448 B</td>
+</tr><tr><td>StringConcat</td><td>.NET 8.0</td><td>10</td><td>2.559 &mu;s</td><td>0.0949 &mu;s</td><td>0.2693 &mu;s</td><td>2.550 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>568 B</td>
+</tr><tr><td>LinqAggregate</td><td>.NET 8.0</td><td>10</td><td>2.586 &mu;s</td><td>0.1204 &mu;s</td><td>0.3375 &mu;s</td><td>2.500 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>1208 B</td>
+</tr><tr><td>StringBuilderConcatenation</td><td>.NET 6.0</td><td>100</td><td>2.736 &mu;s</td><td>0.0717 &mu;s</td><td>0.2102 &mu;s</td><td>2.700 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>3120 B</td>
+</tr><tr><td>StringConcat</td><td>.NET 9.0</td><td>10</td><td>2.776 &mu;s</td><td>0.1751 &mu;s</td><td>0.4968 &mu;s</td><td>2.700 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>568 B</td>
+</tr><tr><td>StringJoinToString</td><td>.NET 8.0</td><td>100</td><td>2.798 &mu;s</td><td>0.1039 &mu;s</td><td>0.2913 &mu;s</td><td>2.700 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>1424 B</td>
+</tr><tr><td>LinqAggregate</td><td>.NET 6.0</td><td>10</td><td>2.816 &mu;s</td><td>0.2641 &mu;s</td><td>0.7789 &mu;s</td><td>2.400 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>1448 B</td>
+</tr><tr><td>StringConcat</td><td>.NET 6.0</td><td>100</td><td>3.768 &mu;s</td><td>0.1257 &mu;s</td><td>0.3312 &mu;s</td><td>3.700 &mu;s</td><td>3</td><td>-</td><td>-</td><td>-</td><td>1704 B</td>
+</tr><tr><td>StringBuilderConcatenation</td><td>.NET 9.0</td><td>100</td><td>3.893 &mu;s</td><td>0.1271 &mu;s</td><td>0.3748 &mu;s</td><td>3.750 &mu;s</td><td>3</td><td>-</td><td>-</td><td>-</td><td>2880 B</td>
+</tr><tr><td>StringJoinToString</td><td>.NET 6.0</td><td>100</td><td>3.934 &mu;s</td><td>0.4734 &mu;s</td><td>1.3809 &mu;s</td><td>3.100 &mu;s</td><td>3</td><td>-</td><td>-</td><td>-</td><td>1664 B</td>
+</tr><tr><td>StringBuilderConcatenation</td><td>.NET 8.0</td><td>100</td><td>4.049 &mu;s</td><td>0.1691 &mu;s</td><td>0.4771 &mu;s</td><td>3.900 &mu;s</td><td>3</td><td>-</td><td>-</td><td>-</td><td>2880 B</td>
+</tr><tr><td>StringConcat</td><td>.NET 9.0</td><td>100</td><td>4.460 &mu;s</td><td>0.0942 &mu;s</td><td>0.2146 &mu;s</td><td>4.400 &mu;s</td><td>4</td><td>-</td><td>-</td><td>-</td><td>1464 B</td>
+</tr><tr><td>StringConcat</td><td>.NET 8.0</td><td>100</td><td>4.712 &mu;s</td><td>0.0939 &mu;s</td><td>0.2339 &mu;s</td><td>4.700 &mu;s</td><td>5</td><td>-</td><td>-</td><td>-</td><td>1464 B</td>
+</tr><tr><td>LinqAggregate</td><td>.NET 6.0</td><td>100</td><td>9.496 &mu;s</td><td>0.1868 &mu;s</td><td>0.4754 &mu;s</td><td>9.300 &mu;s</td><td>6</td><td>-</td><td>-</td><td>-</td><td>53648 B</td>
+</tr><tr><td>LinqAggregateInterpolation</td><td>.NET 6.0</td><td>100</td><td>9.767 &mu;s</td><td>0.1739 &mu;s</td><td>0.3046 &mu;s</td><td>9.700 &mu;s</td><td>6</td><td>-</td><td>-</td><td>-</td><td>53648 B</td>
+</tr><tr><td>StringJoinToString</td><td>.NET 9.0</td><td>1000</td><td>10.300 &mu;s</td><td>0.2016 &mu;s</td><td>0.1787 &mu;s</td><td>10.250 &mu;s</td><td>6</td><td>-</td><td>-</td><td>-</td><td>10424 B</td>
+</tr><tr><td>StringJoinToString</td><td>.NET 8.0</td><td>1000</td><td>10.473 &mu;s</td><td>0.1999 &mu;s</td><td>0.1870 &mu;s</td><td>10.400 &mu;s</td><td>6</td><td>-</td><td>-</td><td>-</td><td>10424 B</td>
+</tr><tr><td>StringBuilderConcatenation</td><td>.NET 6.0</td><td>1000</td><td>11.967 &mu;s</td><td>0.2420 &mu;s</td><td>0.4043 &mu;s</td><td>11.800 &mu;s</td><td>7</td><td>-</td><td>-</td><td>-</td><td>27768 B</td>
+</tr><tr><td>StringJoinToString</td><td>.NET 6.0</td><td>1000</td><td>12.100 &mu;s</td><td>0.1467 &mu;s</td><td>0.1301 &mu;s</td><td>12.050 &mu;s</td><td>7</td><td>-</td><td>-</td><td>-</td><td>10664 B</td>
+</tr><tr><td>StringConcat</td><td>.NET 6.0</td><td>1000</td><td>16.223 &mu;s</td><td>0.3243 &mu;s</td><td>0.4439 &mu;s</td><td>16.000 &mu;s</td><td>8</td><td>-</td><td>-</td><td>-</td><td>10704 B</td>
+</tr><tr><td>StringConcat</td><td>.NET 8.0</td><td>1000</td><td>23.595 &mu;s</td><td>1.0490 &mu;s</td><td>3.0096 &mu;s</td><td>25.000 &mu;s</td><td>9</td><td>-</td><td>-</td><td>-</td><td>10464 B</td>
+</tr><tr><td>StringConcat</td><td>.NET 9.0</td><td>1000</td><td>25.238 &mu;s</td><td>1.0963 &mu;s</td><td>3.1099 &mu;s</td><td>25.850 &mu;s</td><td>9</td><td>-</td><td>-</td><td>-</td><td>10464 B</td>
+</tr><tr><td>LinqAggregate</td><td>.NET 8.0</td><td>100</td><td>29.162 &mu;s</td><td>4.0689 &mu;s</td><td>11.9973 &mu;s</td><td>36.250 &mu;s</td><td>10</td><td>-</td><td>-</td><td>-</td><td>53408 B</td>
+</tr><tr><td>LinqAggregateInterpolation</td><td>.NET 9.0</td><td>100</td><td>29.270 &mu;s</td><td>4.2450 &mu;s</td><td>11.6921 &mu;s</td><td>35.300 &mu;s</td><td>10</td><td>-</td><td>-</td><td>-</td><td>53368 B</td>
+</tr><tr><td>LinqAggregate</td><td>.NET 9.0</td><td>100</td><td>30.547 &mu;s</td><td>4.8489 &mu;s</td><td>14.2971 &mu;s</td><td>36.400 &mu;s</td><td>10</td><td>-</td><td>-</td><td>-</td><td>53080 B</td>
+</tr><tr><td>LinqAggregateInterpolation</td><td>.NET 8.0</td><td>100</td><td>32.727 &mu;s</td><td>5.1895 &mu;s</td><td>15.3013 &mu;s</td><td>37.600 &mu;s</td><td>10</td><td>-</td><td>-</td><td>-</td><td>53408 B</td>
+</tr><tr><td>StringBuilderConcatenation</td><td>.NET 9.0</td><td>1000</td><td>36.949 &mu;s</td><td>3.3651 &mu;s</td><td>9.7090 &mu;s</td><td>40.750 &mu;s</td><td>10</td><td>-</td><td>-</td><td>-</td><td>27528 B</td>
+</tr><tr><td>StringBuilderConcatenation</td><td>.NET 8.0</td><td>1000</td><td>40.983 &mu;s</td><td>3.9663 &mu;s</td><td>11.4437 &mu;s</td><td>42.500 &mu;s</td><td>10</td><td>-</td><td>-</td><td>-</td><td>27528 B</td>
+</tr><tr><td>StringBuilderConcatenation</td><td>.NET 9.0</td><td>10000</td><td>76.203 &mu;s</td><td>1.4456 &mu;s</td><td>1.3522 &mu;s</td><td>76.150 &mu;s</td><td>11</td><td>-</td><td>-</td><td>-</td><td>213672 B</td>
+</tr><tr><td>StringBuilderConcatenation</td><td>.NET 8.0</td><td>10000</td><td>78.762 &mu;s</td><td>1.2422 &mu;s</td><td>1.0373 &mu;s</td><td>78.700 &mu;s</td><td>11</td><td>-</td><td>-</td><td>-</td><td>213960 B</td>
+</tr><tr><td>StringBuilderConcatenation</td><td>.NET 6.0</td><td>10000</td><td>79.147 &mu;s</td><td>1.4127 &mu;s</td><td>2.4368 &mu;s</td><td>78.600 &mu;s</td><td>11</td><td>-</td><td>-</td><td>-</td><td>214200 B</td>
+</tr><tr><td>StringJoinToString</td><td>.NET 8.0</td><td>10000</td><td>88.800 &mu;s</td><td>1.0067 &mu;s</td><td>0.8406 &mu;s</td><td>88.900 &mu;s</td><td>12</td><td>-</td><td>-</td><td>-</td><td>100424 B</td>
+</tr><tr><td>StringJoinToString</td><td>.NET 9.0</td><td>10000</td><td>89.962 &mu;s</td><td>0.3676 &mu;s</td><td>0.3070 &mu;s</td><td>89.900 &mu;s</td><td>12</td><td>-</td><td>-</td><td>-</td><td>100136 B</td>
+</tr><tr><td>StringJoinToString</td><td>.NET 6.0</td><td>10000</td><td>106.838 &mu;s</td><td>1.5191 &mu;s</td><td>1.2686 &mu;s</td><td>107.200 &mu;s</td><td>13</td><td>-</td><td>-</td><td>-</td><td>100664 B</td>
+</tr><tr><td>StringConcat</td><td>.NET 6.0</td><td>10000</td><td>134.908 &mu;s</td><td>2.4791 &mu;s</td><td>1.9355 &mu;s</td><td>135.300 &mu;s</td><td>14</td><td>-</td><td>-</td><td>-</td><td>100704 B</td>
+</tr><tr><td>StringConcat</td><td>.NET 8.0</td><td>10000</td><td>163.738 &mu;s</td><td>1.1471 &mu;s</td><td>0.9579 &mu;s</td><td>163.700 &mu;s</td><td>15</td><td>-</td><td>-</td><td>-</td><td>100464 B</td>
+</tr><tr><td>StringConcat</td><td>.NET 9.0</td><td>10000</td><td>174.608 &mu;s</td><td>0.8831 &mu;s</td><td>0.6895 &mu;s</td><td>174.600 &mu;s</td><td>16</td><td>-</td><td>-</td><td>-</td><td>100464 B</td>
+</tr><tr><td>LinqAggregate</td><td>.NET 9.0</td><td>1000</td><td>434.127 &mu;s</td><td>8.6494 &mu;s</td><td>15.3744 &mu;s</td><td>430.800 &mu;s</td><td>17</td><td>1000.0000</td><td>-</td><td>-</td><td>5030080 B</td>
+</tr><tr><td>LinqAggregateInterpolation</td><td>.NET 9.0</td><td>1000</td><td>451.132 &mu;s</td><td>8.8787 &mu;s</td><td>20.7538 &mu;s</td><td>448.100 &mu;s</td><td>17</td><td>1000.0000</td><td>-</td><td>-</td><td>5030080 B</td>
+</tr><tr><td>LinqAggregateInterpolation</td><td>.NET 8.0</td><td>1000</td><td>453.585 &mu;s</td><td>9.0187 &mu;s</td><td>21.0809 &mu;s</td><td>449.600 &mu;s</td><td>17</td><td>1000.0000</td><td>-</td><td>-</td><td>5030408 B</td>
+</tr><tr><td>LinqAggregate</td><td>.NET 8.0</td><td>1000</td><td>470.533 &mu;s</td><td>10.7091 &mu;s</td><td>30.5536 &mu;s</td><td>465.850 &mu;s</td><td>17</td><td>1000.0000</td><td>-</td><td>-</td><td>5030120 B</td>
+</tr><tr><td>LinqAggregate</td><td>.NET 6.0</td><td>1000</td><td>521.840 &mu;s</td><td>15.4472 &mu;s</td><td>45.0603 &mu;s</td><td>518.400 &mu;s</td><td>18</td><td>1000.0000</td><td>1000.0000</td><td>-</td><td>5030648 B</td>
+</tr><tr><td>LinqAggregateInterpolation</td><td>.NET 6.0</td><td>1000</td><td>617.813 &mu;s</td><td>37.8029 &mu;s</td><td>107.2405 &mu;s</td><td>593.000 &mu;s</td><td>19</td><td>1000.0000</td><td>-</td><td>-</td><td>5030648 B</td>
+</tr><tr><td>LinqAggregateInterpolation</td><td>.NET 8.0</td><td>10000</td><td>73,842.871 &mu;s</td><td>717.0348 &mu;s</td><td>635.6327 &mu;s</td><td>73,822.650 &mu;s</td><td>20</td><td>125000.0000</td><td>44000.0000</td><td>43000.0000</td><td>500314856 B</td>
+</tr><tr><td>LinqAggregateInterpolation</td><td>.NET 9.0</td><td>10000</td><td>74,026.807 &mu;s</td><td>1,026.6459 &mu;s</td><td>960.3252 &mu;s</td><td>74,024.800 &mu;s</td><td>20</td><td>125000.0000</td><td>44000.0000</td><td>43000.0000</td><td>500314528 B</td>
+</tr><tr><td>LinqAggregate</td><td>.NET 9.0</td><td>10000</td><td>74,205.527 &mu;s</td><td>1,281.4789 &mu;s</td><td>1,198.6962 &mu;s</td><td>73,776.400 &mu;s</td><td>20</td><td>125000.0000</td><td>44000.0000</td><td>43000.0000</td><td>500314816 B</td>
+</tr><tr><td>LinqAggregate</td><td>.NET 8.0</td><td>10000</td><td>75,106.610 &mu;s</td><td>1,226.9790 &mu;s</td><td>1,798.4901 &mu;s</td><td>75,008.900 &mu;s</td><td>20</td><td>125000.0000</td><td>44000.0000</td><td>43000.0000</td><td>500314520 B</td>
+</tr><tr><td>LinqAggregateInterpolation</td><td>.NET 6.0</td><td>10000</td><td>75,321.300 &mu;s</td><td>1,232.4848 &mu;s</td><td>1,152.8670 &mu;s</td><td>75,358.600 &mu;s</td><td>20</td><td>125000.0000</td><td>44000.0000</td><td>43000.0000</td><td>500315096 B</td>
+</tr><tr><td>LinqAggregate</td><td>.NET 6.0</td><td>10000</td><td>75,808.492 &mu;s</td><td>1,469.0842 &mu;s</td><td>2,010.8992 &mu;s</td><td>75,132.400 &mu;s</td><td>20</td><td>125000.0000</td><td>44000.0000</td><td>43000.0000</td><td>500315096 B</td>
+</tr></tbody></table>
+</body>
+</html>

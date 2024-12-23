@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>BenchmarksDotnet.Benchmarks.StringComparePerformance-20241223-163048</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 10 (10.0.19045.5247/22H2/2022Update)
+Intel Xeon W-2123 CPU 3.60GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 9.0.101
+  [Host]     : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2 [AttachedDebugger]
+  Job-PXLHCR : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+  Job-SLYGXL : .NET 9.0.0 (9.0.24.52809), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+  Job-ZLKGYE : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method </th><th>Runtime</th><th>IgnoreCaseItem</th><th>FirstItem</th><th>SecondItem</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Rank</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>StringCompare</td><td>.NET 8.0</td><td>False</td><td>Hello World</td><td>Hello World</td><td>1.361 ns</td><td>0.0273 ns</td><td>0.0242 ns</td><td>1.355 ns</td><td>1</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 8.0</td><td>True</td><td>Hello World</td><td>Hello World</td><td>1.374 ns</td><td>0.0590 ns</td><td>0.0606 ns</td><td>1.342 ns</td><td>1</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 9.0</td><td>False</td><td>Hello World</td><td>Hello World</td><td>1.675 ns</td><td>0.0664 ns</td><td>0.0589 ns</td><td>1.649 ns</td><td>2</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 9.0</td><td>True</td><td>Hello World</td><td>Hello World</td><td>1.678 ns</td><td>0.0630 ns</td><td>0.0700 ns</td><td>1.645 ns</td><td>2</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 6.0</td><td>False</td><td>Hello World</td><td>Hello World</td><td>2.671 ns</td><td>0.0324 ns</td><td>0.0271 ns</td><td>2.674 ns</td><td>3</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 6.0</td><td>True</td><td>Hello World</td><td>Hello World</td><td>2.676 ns</td><td>0.0581 ns</td><td>0.0485 ns</td><td>2.675 ns</td><td>3</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 8.0</td><td>True</td><td>hello world</td><td>Hello World</td><td>135.557 ns</td><td>1.0547 ns</td><td>0.8807 ns</td><td>135.576 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 9.0</td><td>True</td><td>Hello World</td><td>HELLO WORLD</td><td>135.662 ns</td><td>1.9679 ns</td><td>1.6433 ns</td><td>135.041 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 9.0</td><td>True</td><td>hello world</td><td>HELLO WORLD</td><td>135.952 ns</td><td>2.6692 ns</td><td>2.7410 ns</td><td>135.097 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 8.0</td><td>True</td><td>hello world</td><td>HELLO WORLD</td><td>137.455 ns</td><td>2.7395 ns</td><td>2.5625 ns</td><td>135.958 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 9.0</td><td>True</td><td>hello world</td><td>Hello World</td><td>140.781 ns</td><td>2.8470 ns</td><td>8.1226 ns</td><td>136.204 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 8.0</td><td>True</td><td>Hello World</td><td>HELLO WORLD</td><td>140.862 ns</td><td>2.8186 ns</td><td>3.1329 ns</td><td>139.822 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 8.0</td><td>False</td><td>hello world</td><td>HELLO WORLD</td><td>142.483 ns</td><td>1.1232 ns</td><td>0.8769 ns</td><td>142.240 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 9.0</td><td>False</td><td>hello world</td><td>Hello World</td><td>143.441 ns</td><td>2.8262 ns</td><td>2.9023 ns</td><td>141.733 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 9.0</td><td>False</td><td>Hello World</td><td>HELLO WORLD</td><td>143.668 ns</td><td>2.7184 ns</td><td>4.4663 ns</td><td>141.946 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 8.0</td><td>False</td><td>hello world</td><td>Hello World</td><td>144.251 ns</td><td>2.8881 ns</td><td>3.4380 ns</td><td>143.192 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 9.0</td><td>False</td><td>hello world</td><td>HELLO WORLD</td><td>146.844 ns</td><td>2.9869 ns</td><td>7.6566 ns</td><td>143.028 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 6.0</td><td>True</td><td>hello world</td><td>Hello World</td><td>147.869 ns</td><td>1.9341 ns</td><td>3.0112 ns</td><td>146.759 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 8.0</td><td>False</td><td>Hello World</td><td>HELLO WORLD</td><td>148.142 ns</td><td>2.9882 ns</td><td>5.0742 ns</td><td>145.884 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 6.0</td><td>True</td><td>hello world</td><td>HELLO WORLD</td><td>151.290 ns</td><td>2.8764 ns</td><td>2.4019 ns</td><td>150.622 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 6.0</td><td>False</td><td>hello world</td><td>Hello World</td><td>151.850 ns</td><td>2.4007 ns</td><td>2.0047 ns</td><td>151.000 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 6.0</td><td>True</td><td>Hello World</td><td>HELLO WORLD</td><td>155.423 ns</td><td>2.5477 ns</td><td>2.5022 ns</td><td>155.370 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 6.0</td><td>False</td><td>hello world</td><td>HELLO WORLD</td><td>158.009 ns</td><td>2.5943 ns</td><td>2.2998 ns</td><td>157.320 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StringCompare</td><td>.NET 6.0</td><td>False</td><td>Hello World</td><td>HELLO WORLD</td><td>160.209 ns</td><td>3.1915 ns</td><td>5.5052 ns</td><td>157.478 ns</td><td>4</td><td>-</td>
+</tr></tbody></table>
+</body>
+</html>

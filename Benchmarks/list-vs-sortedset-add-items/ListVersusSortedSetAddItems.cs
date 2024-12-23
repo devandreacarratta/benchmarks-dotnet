@@ -1,38 +1,37 @@
-﻿namespace BenchmarksDotnet.Benchmarks
+﻿namespace BenchmarksDotnet.Benchmarks;
+
+public class ListVersusSortedSetAddItems
 {
-    public class ListVersusSortedSetAddItems
+    [Params(10, 100, 1_000, 10_000, 100_000)]
+    public int ItemsToAdd;
+
+    private int[] _items = new int[] { };
+
+    [IterationSetup()]
+    public void Setup()
     {
-        [Params(10, 100, 1_000, 10_000, 100_000)]
-        public int ItemsToAdd;
+        _items = Enumerable.Range(0, ItemsToAdd)
+            .OrderBy(x => Guid.NewGuid())
+            .ToArray();
+    }
 
-        private int[] _items = new int[] { };
-
-        [IterationSetup()]
-        public void Setup()
+    [Benchmark]
+    public void AddItemsToList()
+    {
+        var list = new List<int>();
+        foreach (var item in _items)
         {
-            _items = Enumerable.Range(0, ItemsToAdd)
-                .OrderBy(x => Guid.NewGuid())
-                .ToArray();
+            list.Add(item);
         }
+    }
 
-        [Benchmark]
-        public void AddItemsToList()
+    [Benchmark]
+    public void AddItemsToSortedSet()
+    {
+        var list = new SortedSet<int>();
+        foreach (var item in _items)
         {
-            var list = new List<int>();
-            foreach (var item in _items)
-            {
-                list.Add(item);
-            }
-        }
-
-        [Benchmark]
-        public void AddItemsToSortedSet()
-        {
-            var list = new SortedSet<int>();
-            foreach (var item in _items)
-            {
-                list.Add(item);
-            }
+            list.Add(item);
         }
     }
 }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>BenchmarksDotnet.Benchmarks.IEnumerableVersusYield-20241223-151537</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 10 (10.0.19045.5247/22H2/2022Update)
+Intel Xeon W-2123 CPU 3.60GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 9.0.101
+  [Host]     : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2 [AttachedDebugger]
+  Job-SLZKTL : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2
+  Job-QBPARD : .NET 9.0.0 (9.0.24.52809), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+  Job-JEZIMU : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+</code></pre>
+<pre><code>InvocationCount=1  UnrollFactor=1  
+</code></pre>
+
+<table>
+<thead><tr><th>Method        </th><th>Runtime</th><th>ItemsToAdd</th><th>Mean   </th><th>Error</th><th>StdDev</th><th>Median </th><th>Rank</th><th>Gen0</th><th>Gen1</th><th>Gen2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>IEnumerableWithYield</td><td>.NET 6.0</td><td>10</td><td>1.171 &mu;s</td><td>0.0273 &mu;s</td><td>0.0705 &mu;s</td><td>1.200 &mu;s</td><td>1</td><td>-</td><td>-</td><td>-</td><td>680 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 9.0</td><td>10</td><td>1.710 &mu;s</td><td>0.0752 &mu;s</td><td>0.2169 &mu;s</td><td>1.700 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>152 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 6.0</td><td>100</td><td>1.736 &mu;s</td><td>0.0384 &mu;s</td><td>0.0776 &mu;s</td><td>1.700 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>680 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 8.0</td><td>10</td><td>1.761 &mu;s</td><td>0.0678 &mu;s</td><td>0.1977 &mu;s</td><td>1.700 &mu;s</td><td>2</td><td>-</td><td>-</td><td>-</td><td>440 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 6.0</td><td>10</td><td>2.110 &mu;s</td><td>0.1028 &mu;s</td><td>0.2883 &mu;s</td><td>2.000 &mu;s</td><td>3</td><td>-</td><td>-</td><td>-</td><td>864 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 6.0</td><td>100</td><td>2.731 &mu;s</td><td>0.0575 &mu;s</td><td>0.0480 &mu;s</td><td>2.700 &mu;s</td><td>4</td><td>-</td><td>-</td><td>-</td><td>1832 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 9.0</td><td>10</td><td>2.967 &mu;s</td><td>0.0804 &mu;s</td><td>0.2345 &mu;s</td><td>2.950 &mu;s</td><td>4</td><td>-</td><td>-</td><td>-</td><td>288 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 8.0</td><td>10</td><td>3.121 &mu;s</td><td>0.0693 &mu;s</td><td>0.1989 &mu;s</td><td>3.100 &mu;s</td><td>4</td><td>-</td><td>-</td><td>-</td><td>624 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 9.0</td><td>100</td><td>4.725 &mu;s</td><td>0.0992 &mu;s</td><td>0.2157 &mu;s</td><td>4.700 &mu;s</td><td>5</td><td>-</td><td>-</td><td>-</td><td>152 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 8.0</td><td>100</td><td>5.420 &mu;s</td><td>0.2310 &mu;s</td><td>0.6738 &mu;s</td><td>5.200 &mu;s</td><td>6</td><td>-</td><td>-</td><td>-</td><td>440 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 6.0</td><td>1000</td><td>6.393 &mu;s</td><td>0.1125 &mu;s</td><td>0.0997 &mu;s</td><td>6.400 &mu;s</td><td>7</td><td>-</td><td>-</td><td>-</td><td>680 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 9.0</td><td>100</td><td>6.610 &mu;s</td><td>0.1341 &mu;s</td><td>0.2384 &mu;s</td><td>6.600 &mu;s</td><td>7</td><td>-</td><td>-</td><td>-</td><td>1592 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 8.0</td><td>100</td><td>7.261 &mu;s</td><td>0.2290 &mu;s</td><td>0.6532 &mu;s</td><td>7.100 &mu;s</td><td>7</td><td>-</td><td>-</td><td>-</td><td>1592 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 6.0</td><td>1000</td><td>17.060 &mu;s</td><td>1.9054 &mu;s</td><td>5.5279 &mu;s</td><td>17.000 &mu;s</td><td>8</td><td>-</td><td>-</td><td>-</td><td>9072 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 8.0</td><td>1000</td><td>40.440 &mu;s</td><td>0.9129 &mu;s</td><td>2.6192 &mu;s</td><td>39.600 &mu;s</td><td>9</td><td>-</td><td>-</td><td>-</td><td>440 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 9.0</td><td>1000</td><td>43.402 &mu;s</td><td>1.8794 &mu;s</td><td>5.4526 &mu;s</td><td>40.700 &mu;s</td><td>9</td><td>-</td><td>-</td><td>-</td><td>152 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 9.0</td><td>1000</td><td>46.827 &mu;s</td><td>0.9304 &mu;s</td><td>1.8366 &mu;s</td><td>46.200 &mu;s</td><td>10</td><td>-</td><td>-</td><td>-</td><td>8544 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 8.0</td><td>1000</td><td>49.448 &mu;s</td><td>1.9376 &mu;s</td><td>5.5903 &mu;s</td><td>46.150 &mu;s</td><td>10</td><td>-</td><td>-</td><td>-</td><td>8496 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 6.0</td><td>10000</td><td>52.514 &mu;s</td><td>0.0748 &mu;s</td><td>0.0663 &mu;s</td><td>52.500 &mu;s</td><td>10</td><td>-</td><td>-</td><td>-</td><td>680 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 9.0</td><td>10000</td><td>67.621 &mu;s</td><td>1.1573 &mu;s</td><td>1.0260 &mu;s</td><td>67.900 &mu;s</td><td>11</td><td>-</td><td>-</td><td>-</td><td>440 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 8.0</td><td>10000</td><td>68.107 &mu;s</td><td>0.8539 &mu;s</td><td>0.7570 &mu;s</td><td>68.000 &mu;s</td><td>11</td><td>-</td><td>-</td><td>-</td><td>440 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 9.0</td><td>10000</td><td>88.313 &mu;s</td><td>1.7310 &mu;s</td><td>3.5747 &mu;s</td><td>87.850 &mu;s</td><td>12</td><td>-</td><td>-</td><td>-</td><td>131808 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 6.0</td><td>10000</td><td>93.711 &mu;s</td><td>1.7843 &mu;s</td><td>1.9832 &mu;s</td><td>93.500 &mu;s</td><td>12</td><td>-</td><td>-</td><td>-</td><td>132048 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 8.0</td><td>10000</td><td>97.153 &mu;s</td><td>1.7463 &mu;s</td><td>2.6137 &mu;s</td><td>97.100 &mu;s</td><td>12</td><td>-</td><td>-</td><td>-</td><td>131808 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 8.0</td><td>100000</td><td>288.600 &mu;s</td><td>4.4733 &mu;s</td><td>3.7354 &mu;s</td><td>287.000 &mu;s</td><td>13</td><td>-</td><td>-</td><td>-</td><td>104 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 9.0</td><td>100000</td><td>312.871 &mu;s</td><td>1.5020 &mu;s</td><td>1.3315 &mu;s</td><td>312.900 &mu;s</td><td>14</td><td>-</td><td>-</td><td>-</td><td>440 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 6.0</td><td>100000</td><td>516.529 &mu;s</td><td>1.2048 &mu;s</td><td>1.0680 &mu;s</td><td>515.900 &mu;s</td><td>15</td><td>-</td><td>-</td><td>-</td><td>680 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 9.0</td><td>100000</td><td>777.984 &mu;s</td><td>23.1979 &mu;s</td><td>63.1115 &mu;s</td><td>759.700 &mu;s</td><td>16</td><td>-</td><td>-</td><td>-</td><td>1049096 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 8.0</td><td>100000</td><td>874.398 &mu;s</td><td>17.4896 &mu;s</td><td>40.5349 &mu;s</td><td>873.050 &mu;s</td><td>17</td><td>-</td><td>-</td><td>-</td><td>1049384 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 6.0</td><td>100000</td><td>1,150.907 &mu;s</td><td>20.0879 &mu;s</td><td>18.7902 &mu;s</td><td>1,155.400 &mu;s</td><td>18</td><td>-</td><td>-</td><td>-</td><td>1049624 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 8.0</td><td>1000000</td><td>2,467.000 &mu;s</td><td>36.3753 &mu;s</td><td>32.2457 &mu;s</td><td>2,457.000 &mu;s</td><td>19</td><td>-</td><td>-</td><td>-</td><td>440 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 9.0</td><td>1000000</td><td>2,773.871 &mu;s</td><td>52.6763 &mu;s</td><td>54.0946 &mu;s</td><td>2,778.300 &mu;s</td><td>20</td><td>-</td><td>-</td><td>-</td><td>440 B</td>
+</tr><tr><td>IEnumerableWithYield</td><td>.NET 6.0</td><td>1000000</td><td>5,100.621 &mu;s</td><td>94.4639 &mu;s</td><td>83.7398 &mu;s</td><td>5,122.200 &mu;s</td><td>21</td><td>-</td><td>-</td><td>-</td><td>680 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 9.0</td><td>1000000</td><td>7,216.828 &mu;s</td><td>135.0754 &mu;s</td><td>281.9527 &mu;s</td><td>7,242.100 &mu;s</td><td>22</td><td>1000.0000</td><td>1000.0000</td><td>1000.0000</td><td>8389488 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 8.0</td><td>1000000</td><td>8,323.911 &mu;s</td><td>165.6081 &mu;s</td><td>281.2152 &mu;s</td><td>8,324.100 &mu;s</td><td>23</td><td>1000.0000</td><td>1000.0000</td><td>1000.0000</td><td>8389824 B</td>
+</tr><tr><td>IEnumerableWithList</td><td>.NET 6.0</td><td>1000000</td><td>11,663.507 &mu;s</td><td>209.7885 &mu;s</td><td>196.2363 &mu;s</td><td>11,692.800 &mu;s</td><td>24</td><td>1000.0000</td><td>1000.0000</td><td>1000.0000</td><td>8390064 B</td>
+</tr></tbody></table>
+</body>
+</html>
