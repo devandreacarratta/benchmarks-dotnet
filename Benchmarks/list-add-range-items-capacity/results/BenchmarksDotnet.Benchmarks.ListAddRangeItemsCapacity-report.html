@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>BenchmarksDotnet.Benchmarks.ListAddRangeItemsCapacity-20241227-154943</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 10 (10.0.19045.5247/22H2/2022Update)
+Intel Xeon W-2123 CPU 3.60GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 9.0.101
+  [Host]     : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2 [AttachedDebugger]
+  Job-OBFGSV : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+  Job-NTGRTK : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2
+  Job-DZAVPW : .NET 9.0.0 (9.0.24.52809), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+</code></pre>
+<pre><code>InvocationCount=1  UnrollFactor=1  
+</code></pre>
+
+<table>
+<thead><tr><th>Method           </th><th>Runtime</th><th>NumberOfItems</th><th>Mean  </th><th>Error</th><th>StdDev</th><th>Median</th><th>Rank</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>AddRangeWithCapacity</td><td>.NET 8.0</td><td>1000</td><td>1.181 &mu;s</td><td>0.0572 &mu;s</td><td>0.1676 &mu;s</td><td>1.100 &mu;s</td><td>1</td><td>400 B</td>
+</tr><tr><td>AddRangeWithCapacity</td><td>.NET 6.0</td><td>1000</td><td>1.283 &mu;s</td><td>0.0835 &mu;s</td><td>0.2450 &mu;s</td><td>1.200 &mu;s</td><td>1</td><td>640 B</td>
+</tr><tr><td>AddRangeWithCapacity</td><td>.NET 9.0</td><td>1000</td><td>1.355 &mu;s</td><td>0.1024 &mu;s</td><td>0.2988 &mu;s</td><td>1.300 &mu;s</td><td>1</td><td>112 B</td>
+</tr><tr><td>AddRangeWithoutCapacity</td><td>.NET 6.0</td><td>1000</td><td>1.995 &mu;s</td><td>0.0741 &mu;s</td><td>0.2103 &mu;s</td><td>1.900 &mu;s</td><td>2</td><td>8664 B</td>
+</tr><tr><td>AddRangeWithoutCapacity</td><td>.NET 9.0</td><td>1000</td><td>2.380 &mu;s</td><td>0.0838 &mu;s</td><td>0.2364 &mu;s</td><td>2.350 &mu;s</td><td>3</td><td>8136 B</td>
+</tr><tr><td>AddRangeWithoutCapacity</td><td>.NET 8.0</td><td>1000</td><td>2.409 &mu;s</td><td>0.0554 &mu;s</td><td>0.1554 &mu;s</td><td>2.400 &mu;s</td><td>3</td><td>8424 B</td>
+</tr><tr><td>AddRangeWithCapacity</td><td>.NET 8.0</td><td>10000</td><td>6.276 &mu;s</td><td>0.1312 &mu;s</td><td>0.2229 &mu;s</td><td>6.300 &mu;s</td><td>4</td><td>400 B</td>
+</tr><tr><td>AddRangeWithCapacity</td><td>.NET 6.0</td><td>10000</td><td>6.353 &mu;s</td><td>0.1269 &mu;s</td><td>0.1187 &mu;s</td><td>6.300 &mu;s</td><td>4</td><td>640 B</td>
+</tr><tr><td>AddRangeWithCapacity</td><td>.NET 9.0</td><td>10000</td><td>8.483 &mu;s</td><td>0.7037 &mu;s</td><td>2.0303 &mu;s</td><td>7.650 &mu;s</td><td>5</td><td>112 B</td>
+</tr><tr><td>AddRangeWithoutCapacity</td><td>.NET 6.0</td><td>10000</td><td>11.897 &mu;s</td><td>0.2432 &mu;s</td><td>0.3927 &mu;s</td><td>11.800 &mu;s</td><td>6</td><td>80664 B</td>
+</tr><tr><td>AddRangeWithoutCapacity</td><td>.NET 8.0</td><td>10000</td><td>12.033 &mu;s</td><td>0.2274 &mu;s</td><td>0.1775 &mu;s</td><td>12.050 &mu;s</td><td>6</td><td>80424 B</td>
+</tr><tr><td>AddRangeWithoutCapacity</td><td>.NET 9.0</td><td>10000</td><td>13.068 &mu;s</td><td>0.4777 &mu;s</td><td>1.3396 &mu;s</td><td>12.800 &mu;s</td><td>6</td><td>80136 B</td>
+</tr><tr><td>AddRangeWithCapacity</td><td>.NET 6.0</td><td>100000</td><td>109.629 &mu;s</td><td>2.1899 &mu;s</td><td>4.2712 &mu;s</td><td>108.950 &mu;s</td><td>7</td><td>640 B</td>
+</tr><tr><td>AddRangeWithCapacity</td><td>.NET 8.0</td><td>100000</td><td>110.820 &mu;s</td><td>2.1405 &mu;s</td><td>3.8598 &mu;s</td><td>110.800 &mu;s</td><td>7</td><td>400 B</td>
+</tr><tr><td>AddRangeWithCapacity</td><td>.NET 9.0</td><td>100000</td><td>115.138 &mu;s</td><td>3.1317 &mu;s</td><td>9.1847 &mu;s</td><td>112.450 &mu;s</td><td>7</td><td>400 B</td>
+</tr><tr><td>AddRangeWithoutCapacity</td><td>.NET 9.0</td><td>100000</td><td>120.643 &mu;s</td><td>2.3822 &mu;s</td><td>2.1118 &mu;s</td><td>120.950 &mu;s</td><td>7</td><td>800088 B</td>
+</tr><tr><td>AddRangeWithoutCapacity</td><td>.NET 8.0</td><td>100000</td><td>121.689 &mu;s</td><td>3.0747 &mu;s</td><td>8.8219 &mu;s</td><td>117.800 &mu;s</td><td>7</td><td>800424 B</td>
+</tr><tr><td>AddRangeWithoutCapacity</td><td>.NET 6.0</td><td>100000</td><td>121.906 &mu;s</td><td>2.3229 &mu;s</td><td>3.6165 &mu;s</td><td>121.100 &mu;s</td><td>7</td><td>800664 B</td>
+</tr><tr><td>AddRangeWithCapacity</td><td>.NET 6.0</td><td>1000000</td><td>1,111.280 &mu;s</td><td>22.1580 &mu;s</td><td>20.7266 &mu;s</td><td>1,105.600 &mu;s</td><td>8</td><td>640 B</td>
+</tr><tr><td>AddRangeWithCapacity</td><td>.NET 8.0</td><td>1000000</td><td>1,112.694 &mu;s</td><td>17.8301 &mu;s</td><td>19.0780 &mu;s</td><td>1,110.500 &mu;s</td><td>8</td><td>400 B</td>
+</tr><tr><td>AddRangeWithCapacity</td><td>.NET 9.0</td><td>1000000</td><td>1,120.138 &mu;s</td><td>20.9333 &mu;s</td><td>20.5593 &mu;s</td><td>1,118.900 &mu;s</td><td>8</td><td>400 B</td>
+</tr><tr><td>AddRangeWithoutCapacity</td><td>.NET 9.0</td><td>1000000</td><td>1,325.600 &mu;s</td><td>23.9842 &mu;s</td><td>20.0279 &mu;s</td><td>1,319.000 &mu;s</td><td>9</td><td>8000088 B</td>
+</tr><tr><td>AddRangeWithoutCapacity</td><td>.NET 6.0</td><td>1000000</td><td>1,328.773 &mu;s</td><td>24.5500 &mu;s</td><td>40.3363 &mu;s</td><td>1,326.550 &mu;s</td><td>9</td><td>8000664 B</td>
+</tr><tr><td>AddRangeWithoutCapacity</td><td>.NET 8.0</td><td>1000000</td><td>1,351.015 &mu;s</td><td>26.3542 &mu;s</td><td>41.8006 &mu;s</td><td>1,340.700 &mu;s</td><td>9</td><td>8000424 B</td>
+</tr></tbody></table>
+</body>
+</html>
