@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>BenchmarksDotnet.Benchmarks.StringStartWith-20241227-141026</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 10 (10.0.19045.5247/22H2/2022Update)
+Intel Xeon W-2123 CPU 3.60GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 9.0.101
+  [Host]     : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2 [AttachedDebugger]
+  Job-UBNFOY : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2
+  Job-EKEEND : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+  Job-FUYQNI : .NET 9.0.0 (9.0.24.52809), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method   </th><th>Runtime</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Rank</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>StartWithChar</td><td>.NET 6.0</td><td>0.0012 ns</td><td>0.0043 ns</td><td>0.0036 ns</td><td>0.0000 ns</td><td>1</td><td>-</td>
+</tr><tr><td>StartWithChar</td><td>.NET 8.0</td><td>0.0016 ns</td><td>0.0043 ns</td><td>0.0046 ns</td><td>0.0000 ns</td><td>1</td><td>-</td>
+</tr><tr><td>StartWithChar</td><td>.NET 9.0</td><td>0.0033 ns</td><td>0.0091 ns</td><td>0.0081 ns</td><td>0.0000 ns</td><td>1</td><td>-</td>
+</tr><tr><td>StartWithString</td><td>.NET 9.0</td><td>14.8733 ns</td><td>0.1632 ns</td><td>0.1447 ns</td><td>14.8602 ns</td><td>2</td><td>-</td>
+</tr><tr><td>StartWithString</td><td>.NET 8.0</td><td>16.5548 ns</td><td>0.3520 ns</td><td>0.9516 ns</td><td>16.1306 ns</td><td>3</td><td>-</td>
+</tr><tr><td>StartWithString</td><td>.NET 6.0</td><td>22.5515 ns</td><td>0.4060 ns</td><td>0.3390 ns</td><td>22.4104 ns</td><td>4</td><td>-</td>
+</tr></tbody></table>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>BenchmarksDotnet.Benchmarks.StringIndexOf-20241227-150657</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 10 (10.0.19045.5247/22H2/2022Update)
+Intel Xeon W-2123 CPU 3.60GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 9.0.101
+  [Host]     : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2 [AttachedDebugger]
+  Job-BDSGSG : .NET 9.0.0 (9.0.24.52809), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+  Job-KBRTQP : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+  Job-CPIYAJ : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method   </th><th>Runtime</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Rank</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>StartWithChar</td><td>.NET 9.0</td><td>2.166 ns</td><td>0.0297 ns</td><td>0.0232 ns</td><td>2.168 ns</td><td>1</td><td>-</td>
+</tr><tr><td>StartWithChar</td><td>.NET 8.0</td><td>2.968 ns</td><td>0.0371 ns</td><td>0.0290 ns</td><td>2.961 ns</td><td>2</td><td>-</td>
+</tr><tr><td>StartWithChar</td><td>.NET 6.0</td><td>4.780 ns</td><td>0.0846 ns</td><td>0.0750 ns</td><td>4.751 ns</td><td>3</td><td>-</td>
+</tr><tr><td>StartWithString</td><td>.NET 8.0</td><td>35.226 ns</td><td>0.5351 ns</td><td>0.4468 ns</td><td>35.056 ns</td><td>4</td><td>-</td>
+</tr><tr><td>StartWithString</td><td>.NET 9.0</td><td>42.821 ns</td><td>0.4093 ns</td><td>0.3418 ns</td><td>42.905 ns</td><td>5</td><td>-</td>
+</tr><tr><td>StartWithString</td><td>.NET 6.0</td><td>64.536 ns</td><td>2.0933 ns</td><td>5.9041 ns</td><td>62.041 ns</td><td>6</td><td>-</td>
+</tr></tbody></table>
+</body>
+</html>

@@ -2,12 +2,12 @@
 	"BaseFolderResult": "../../../Benchmarks/",
 	"DefaultNamespace": "BenchmarksDotnet.Benchmarks",
 	"CoreRuntimes": ["Core60","Core80","Core90"],
-	"Benchmarks": {
+	"Benchmarks": {	
 		"dictionary-vs-sorted-add-items":{"Type":"DictionaryVersusSortedAddItems","Exclude":true},
 		"dictionary-vs-sorted-try-add-items":{"Type":"DictionaryVersusSortedTryAddItems","Exclude":true},
 		"guid-to-string":{"Type":"GuidToString","Exclude":true},
 		"ienumerable-vs-yield":{"Type":"IEnumerableVersusYield","Exclude":true},
-		"list-count-greater-than-zero-vs-any":{"Type":"ListCountGreaterThanZeroVsAny","Exclude":false},		
+		"list-count-greater-than-zero-vs-any":{"Type":"ListCountGreaterThanZeroVsAny","Exclude":true},		
 		"list-sort-vs-linq-descending":{"Type":"ListSortVersusLinqDescending","Exclude":true},
 		"list-sort-vs-linq":{"Type":"ListSortVersusLinq","Exclude":true},
 		"list-vs-sortedset-add-items":{"Type":"ListVersusSortedSetAddItems","Exclude":true},
@@ -18,6 +18,9 @@
 		"string-compare-performance":{"Type":"StringComparePerformance","Exclude":true},
 		"string-concatenation-separator":{"Type":"StringEqualsPerformance","Exclude":true},
 		"string-concatenation":{"Type":"StringConcatenation","Exclude":true},
-		"string-equals-performance":{"Type":"StringEqualsPerformance","Exclude":true}
+		"string-contains": {"Type": "StringContains","Exclude": true},
+		"string-equals-performance": {"Type": "StringEqualsPerformance","Exclude": true},
+		"string-indexof": {"Type": "StringIndexOf","Exclude": true},
+		"string-start-with": {"Type": "StringStartWith","Exclude": true}
 	}
 }
