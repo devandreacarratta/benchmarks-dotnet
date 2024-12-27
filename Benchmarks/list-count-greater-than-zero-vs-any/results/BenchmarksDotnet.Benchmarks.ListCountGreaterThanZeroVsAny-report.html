@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>BenchmarksDotnet.Benchmarks.ListCountGreaterThanZeroVsAny-20241227-132432</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 10 (10.0.19045.5247/22H2/2022Update)
+Intel Xeon W-2123 CPU 3.60GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 9.0.101
+  [Host]     : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2 [AttachedDebugger]
+  Job-GKDXUS : .NET 6.0.36 (6.0.3624.51421), X64 RyuJIT AVX2
+  Job-OHKURJ : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+  Job-ZXQFGE : .NET 9.0.0 (9.0.24.52809), X64 RyuJIT AVX-512F+CD+BW+DQ+VL
+</code></pre>
+<pre><code>InvocationCount=1  UnrollFactor=1  
+</code></pre>
+
+<table>
+<thead><tr><th>Method            </th><th>Runtime</th><th>ItemsToAdd</th><th>Mean </th><th>Error</th><th>StdDev</th><th>Median</th><th>Rank</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>ListCountGreaterThanZero</td><td>.NET 6.0</td><td>1000</td><td>75.53 ns</td><td>22.22 ns</td><td>63.39 ns</td><td>100.0 ns</td><td>1</td><td>640 B</td>
+</tr><tr><td>ListCountGreaterThanZero</td><td>.NET 8.0</td><td>10000</td><td>93.18 ns</td><td>40.38 ns</td><td>111.21 ns</td><td>100.0 ns</td><td>1</td><td>400 B</td>
+</tr><tr><td>ListCountGreaterThanZero</td><td>.NET 8.0</td><td>1000</td><td>105.26 ns</td><td>33.09 ns</td><td>94.95 ns</td><td>100.0 ns</td><td>1</td><td>400 B</td>
+</tr><tr><td>ListCountGreaterThanZero</td><td>.NET 6.0</td><td>10000</td><td>107.69 ns</td><td>31.10 ns</td><td>87.22 ns</td><td>100.0 ns</td><td>1</td><td>640 B</td>
+</tr><tr><td>ListAny</td><td>.NET 9.0</td><td>1000</td><td>108.33 ns</td><td>37.18 ns</td><td>107.28 ns</td><td>100.0 ns</td><td>1</td><td>112 B</td>
+</tr><tr><td>ListCountGreaterThanZero</td><td>.NET 9.0</td><td>1000</td><td>121.74 ns</td><td>40.31 ns</td><td>113.70 ns</td><td>100.0 ns</td><td>1</td><td>400 B</td>
+</tr><tr><td>ListCountGreaterThanZero</td><td>.NET 9.0</td><td>10000</td><td>156.67 ns</td><td>63.41 ns</td><td>176.77 ns</td><td>100.0 ns</td><td>1</td><td>400 B</td>
+</tr><tr><td>ListAny</td><td>.NET 6.0</td><td>10000</td><td>197.78 ns</td><td>40.59 ns</td><td>113.15 ns</td><td>200.0 ns</td><td>2</td><td>640 B</td>
+</tr><tr><td>ListAny</td><td>.NET 8.0</td><td>1000</td><td>264.13 ns</td><td>35.87 ns</td><td>101.18 ns</td><td>200.0 ns</td><td>3</td><td>400 B</td>
+</tr><tr><td>ListAny</td><td>.NET 6.0</td><td>1000</td><td>273.33 ns</td><td>31.26 ns</td><td>87.15 ns</td><td>300.0 ns</td><td>3</td><td>640 B</td>
+</tr><tr><td>ListAny</td><td>.NET 8.0</td><td>10000</td><td>320.69 ns</td><td>74.98 ns</td><td>205.24 ns</td><td>300.0 ns</td><td>3</td><td>112 B</td>
+</tr><tr><td>ListAny</td><td>.NET 9.0</td><td>10000</td><td>498.94 ns</td><td>131.80 ns</td><td>376.03 ns</td><td>400.0 ns</td><td>4</td><td>112 B</td>
+</tr><tr><td>ListCountGreaterThanZero</td><td>.NET 6.0</td><td>100000</td><td>573.96 ns</td><td>161.18 ns</td><td>465.04 ns</td><td>400.0 ns</td><td>4</td><td>640 B</td>
+</tr><tr><td>ListCountGreaterThanZero</td><td>.NET 9.0</td><td>100000</td><td>995.79 ns</td><td>203.03 ns</td><td>582.53 ns</td><td>1,000.0 ns</td><td>5</td><td>400 B</td>
+</tr><tr><td>ListAny</td><td>.NET 6.0</td><td>100000</td><td>1,126.26 ns</td><td>243.72 ns</td><td>714.80 ns</td><td>900.0 ns</td><td>5</td><td>640 B</td>
+</tr><tr><td>ListCountGreaterThanZero</td><td>.NET 8.0</td><td>100000</td><td>1,347.87 ns</td><td>223.03 ns</td><td>636.31 ns</td><td>1,300.0 ns</td><td>6</td><td>400 B</td>
+</tr><tr><td>ListAny</td><td>.NET 9.0</td><td>100000</td><td>1,744.09 ns</td><td>289.49 ns</td><td>821.25 ns</td><td>1,600.0 ns</td><td>7</td><td>112 B</td>
+</tr><tr><td>ListAny</td><td>.NET 8.0</td><td>100000</td><td>2,379.17 ns</td><td>343.47 ns</td><td>991.00 ns</td><td>2,350.0 ns</td><td>8</td><td>400 B</td>
+</tr></tbody></table>
+</body>
+</html>
