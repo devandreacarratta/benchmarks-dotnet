@@ -7,6 +7,8 @@
 		"dictionary-vs-sorted-try-add-items":{"Type":"DictionaryVersusSortedTryAddItems","Exclude":true},
 		"guid-to-string":{"Type":"GuidToString","Exclude":true},
 		"ienumerable-vs-yield":{"Type":"IEnumerableVersusYield","Exclude":true},
+		"list-add-items-capacity": {"Type": "ListAddItemsCapacity","Exclude": true},
+		"list-add-range-items-capacity": {"Type": "ListAddRangeItemsCapacity","Exclude": true},
 		"list-count-greater-than-zero-vs-any":{"Type":"ListCountGreaterThanZeroVsAny","Exclude":true},		
 		"list-sort-vs-linq-descending":{"Type":"ListSortVersusLinqDescending","Exclude":true},
 		"list-sort-vs-linq":{"Type":"ListSortVersusLinq","Exclude":true},
