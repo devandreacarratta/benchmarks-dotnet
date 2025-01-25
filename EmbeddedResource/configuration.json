@@ -1,7 +1,7 @@
 {
 	"BaseFolderResult": "../../../Benchmarks/",
 	"DefaultNamespace": "BenchmarksDotnet.Benchmarks",
-	"CoreRuntimes": ["Core60","Core80","Core90"],
+	"CoreRuntimes": ["Core80","Core90"],
 	"Benchmarks": {	
 		"dictionary-vs-sorted-add-items":{"Type":"DictionaryVersusSortedAddItems","Exclude":true},
 		"dictionary-vs-sorted-try-add-items":{"Type":"DictionaryVersusSortedTryAddItems","Exclude":true},
@@ -9,7 +9,8 @@
 		"ienumerable-vs-yield":{"Type":"IEnumerableVersusYield","Exclude":true},
 		"list-add-items-capacity": {"Type": "ListAddItemsCapacity","Exclude": true},
 		"list-add-range-items-capacity": {"Type": "ListAddRangeItemsCapacity","Exclude": true},
-		"list-count-greater-than-zero-vs-any":{"Type":"ListCountGreaterThanZeroVsAny","Exclude":true},		
+		"list-count-greater-than-zero-vs-any":{"Type":"ListCountGreaterThanZeroVsAny","Exclude":true},	
+		"list-random-sort": { "Type": "ListRandomSort", "Exclude": false },
 		"list-sort-vs-linq-descending":{"Type":"ListSortVersusLinqDescending","Exclude":true},
 		"list-sort-vs-linq":{"Type":"ListSortVersusLinq","Exclude":true},
 		"list-vs-sortedset-add-items":{"Type":"ListVersusSortedSetAddItems","Exclude":true},
